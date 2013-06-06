@@ -1,0 +1,1 @@
+<?phprequire_once '../include.php';$main_content = new Template('user_auctions');$listing = new Template('listing');$listing->set('content', Auction::getUserItems($user['ID']));$main_content->set('active', $listing->fetch());$template->set('content', $main_content->fetch());echo $template->fetch();?>

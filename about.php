@@ -1,0 +1,1 @@
+<?phprequire_once 'include.php';$main_content = new Template('about');$miniform = new Template('basicvehicle');$main_content->set('miniform', $miniform->fetch());$template->set('content', $main_content->fetch());echo $template->fetch();?>

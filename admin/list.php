@@ -1,0 +1,1 @@
+<?php require_once '../include.php';if(!User::hasPermission('Admin')){	header('location: /index.php');	die();}$id = isset($_REQUEST['ID'])? (int)$_REQUEST['ID'] : false;$list = $id ? false : true;$main_content = new Template('admin_list');$template->set('content', $main_content->fetch());echo $template->fetch();?>

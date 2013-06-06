@@ -1,0 +1,1253 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class ErrorHandler</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.png";
+				imgMinus.src = "../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name"><img src="../media/images/Class_logo.png"
+														alt=" Class"
+														title=" Class"
+														style="vertical-align: middle"> ErrorHandler</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+		<p class="notes">
+			Located in <a class="field" href="_ErrorHandler_inc.html">/ErrorHandler.inc</a> (line <span class="field"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a63">63</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$CUSTOM" title="details" class="var-name">$CUSTOM</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$SILENT" title="details" class="var-name">$SILENT</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$_ALTDLOG" title="details" class="var-name">$_ALTDLOG</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$_COLLECT" title="details" class="var-name">$_COLLECT</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$_CONSOLE" title="details" class="var-name">$_CONSOLE</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$_CONTEXT" title="details" class="var-name">$_CONTEXT</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$_LEVEL" title="details" class="var-name">$_LEVEL</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$_LOGGING" title="details" class="var-name">$_LOGGING</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$_REPLACE" title="details" class="var-name">$_REPLACE</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$_SECTION" title="details" class="var-name">$_SECTION</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$_SOURCE" title="details" class="var-name">$_SOURCE</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$_TRAP" title="details" class="var-name">$_TRAP</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$_TRAP_LEVEL" title="details" class="var-name">$_TRAP_LEVEL</a>
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+					<img src="../media/images/Constructor.png" alt=" "/>
+											<span class="method-result">ErrorHandler</span>
+										<a href="#ErrorHandler" title="details" class="method-name">ErrorHandler</a>
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$inifile</span> = <span class="var-default">ERRORHANDLER_INI</span>])
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#debug" title="details" class="method-name">debug</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$variable</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">'*unknown*'</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$file_name</span> = <span class="var-default">'*unspecified* file'</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$line_no</span> = <span class="var-default">'*unknown*'</span>])
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#is_trapped" title="details" class="method-name">is_trapped</a>
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#load_ini" title="details" class="method-name">load_ini</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$inifile</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#lock" title="details" class="method-name">lock</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#log" title="details" class="method-name">log</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$message</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$file_name</span> = <span class="var-default">'*unspecified* file'</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$line_no</span> = <span class="var-default">'*unknown*'</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$target</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#restore" title="details" class="method-name">restore</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#set" title="details" class="method-name">set</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$section</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#set_altdlog" title="details" class="method-name">set_altdlog</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$file_name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$flag</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#set_context" title="details" class="method-name">set_context</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$flag</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span> = <span class="var-default">null</span>])
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#set_logging" title="details" class="method-name">set_logging</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$target</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#set_replace" title="details" class="method-name">set_replace</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$flag</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#set_source" title="details" class="method-name">set_source</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$flag</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#trap" title="details" class="method-name">trap</a>
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span> = <span class="var-default">TRUE</span>])
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#_console" title="details" class="method-name">_console</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$output</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#_context" title="details" class="method-name">_context</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">&$var_context</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$source</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#_handle_error" title="details" class="method-name">_handle_error</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$err_str</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$file_name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$line_no</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$context</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#_intlevel" title="details" class="method-name">_intlevel</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#_lockreset" title="details" class="method-name">_lockreset</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#_log" title="details" class="method-name">_log</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$logmsg</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$logging</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#_logall" title="details" class="method-name">_logall</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$file_name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$logstr</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#_message" title="details" class="method-name">_message</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$file_name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$line_no</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$err_str</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#_output" title="details" class="method-name">_output</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$message</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$source</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$context</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#_phpscope" title="details" class="method-name">_phpscope</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$source</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#_replace" title="details" class="method-name">_replace</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#_source" title="details" class="method-name">_source</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$file_name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$line_no</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#_sprint_var" title="details" class="method-name">_sprint_var</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$var</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$CUSTOM" id="$CUSTOM"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$CUSTOM</span>
+			 = <span class="var-default"> ''</span>			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a68">68</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$SILENT" id="$SILENT"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$SILENT</span>
+			 = <span class="var-default"> FALSE</span>			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a69">69</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$_ALTDLOG" id="$_ALTDLOG"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_ALTDLOG</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a83">83</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$_COLLECT" id="$_COLLECT"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_COLLECT</span>
+			 = <span class="var-default"> ''</span>			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a93">93</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$_CONSOLE" id="$_CONSOLE"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_CONSOLE</span>
+			 = <span class="var-default"> ''</span>			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a92">92</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$_CONTEXT" id="$_CONTEXT"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_CONTEXT</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a84">84</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$_LEVEL" id="$_LEVEL"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_LEVEL</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a81">81</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$_LOGGING" id="$_LOGGING"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_LOGGING</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a86">86</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$_REPLACE" id="$_REPLACE"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_REPLACE</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a87">87</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$_SECTION" id="$_SECTION"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_SECTION</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a80">80</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$_SOURCE" id="$_SOURCE"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_SOURCE</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a85">85</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$_TRAP" id="$_TRAP"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_TRAP</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a90">90</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$_TRAP_LEVEL" id="$_TRAP_LEVEL"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_TRAP_LEVEL</span>
+			 = <span class="var-default"> 0</span>			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a91">91</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodErrorHandler" id="ErrorHandler"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Constructor.png" />
+		<span class="method-title">Constructor ErrorHandler</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a95">95</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">ErrorHandler</span>
+		<span class="method-name">
+			ErrorHandler
+		</span>
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$inifile</span> = <span class="var-default">ERRORHANDLER_INI</span>])
+			</div>
+	
+		
+		
+	</div>
+<a name="methoddebug" id="debug"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">debug</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a364">364</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			debug
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$variable</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">'*unknown*'</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$file_name</span> = <span class="var-default">'*unspecified* file'</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$line_no</span> = <span class="var-default">'*unknown*'</span>])
+			</div>
+	
+		
+		
+	</div>
+<a name="methodis_trapped" id="is_trapped"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">is_trapped</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a346">346</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			is_trapped
+		</span>
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span> = <span class="var-default">null</span>])
+			</div>
+	
+		
+		
+	</div>
+<a name="methodload_ini" id="load_ini"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">load_ini</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a124">124</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			load_ini
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$inifile</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodlock" id="lock"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">lock</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a177">177</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			lock
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodlog" id="log"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">log</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a372">372</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			log
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$message</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$file_name</span> = <span class="var-default">'*unspecified* file'</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$line_no</span> = <span class="var-default">'*unknown*'</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$target</span> = <span class="var-default">null</span>])
+			</div>
+	
+		
+		
+	</div>
+<a name="methodrestore" id="restore"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">restore</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a193">193</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			restore
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodset" id="set"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">set</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a200">200</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			set
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$section</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodset_altdlog" id="set_altdlog"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">set_altdlog</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a236">236</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			set_altdlog
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$file_name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$flag</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span> = <span class="var-default">null</span>])
+			</div>
+	
+		
+		
+	</div>
+<a name="methodset_context" id="set_context"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">set_context</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a265">265</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			set_context
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$flag</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span> = <span class="var-default">null</span>])
+			</div>
+	
+		
+		
+	</div>
+<a name="methodset_logging" id="set_logging"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">set_logging</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a292">292</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			set_logging
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$target</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodset_replace" id="set_replace"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">set_replace</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a313">313</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			set_replace
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$flag</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodset_source" id="set_source"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">set_source</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a325">325</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			set_source
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$flag</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="methodtrap" id="trap"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">trap</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a337">337</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			trap
+		</span>
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span> = <span class="var-default">TRUE</span>])
+			</div>
+	
+		
+		
+	</div>
+<a name="method_console" id="_console"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_console</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a391">391</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_console
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$output</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="method_context" id="_context"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_context</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a408">408</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_context
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">&$var_context</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$source</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="method_handle_error" id="_handle_error"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_handle_error</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a456">456</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_handle_error
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$err_str</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$file_name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$line_no</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$context</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="method_intlevel" id="_intlevel"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_intlevel</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a650">650</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_intlevel
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="method_lockreset" id="_lockreset"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_lockreset</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a667">667</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_lockreset
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="method_log" id="_log"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_log</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a524">524</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_log
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$logmsg</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$logging</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="method_logall" id="_logall"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_logall</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a546">546</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_logall
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$file_name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$logstr</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="method_message" id="_message"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_message</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a497">497</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_message
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$file_name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$line_no</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$err_str</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="method_output" id="_output"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_output</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a562">562</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_output
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$message</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$source</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$context</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="method_phpscope" id="_phpscope"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_phpscope</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a675">675</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_phpscope
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$source</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="method_replace" id="_replace"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_replace</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a579">579</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_replace
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="method_source" id="_source"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_source</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a604">604</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_source
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$file_name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$line_no</span>)
+			</div>
+	
+		
+		
+	</div>
+<a name="method_sprint_var" id="_sprint_var"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_sprint_var</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a703">703</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_sprint_var
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$var</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$level</span>)
+			</div>
+	
+		
+		
+	</div>
+						
+		</div>
+	</div>
+
+	
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 17 Feb 2005 14:20:45 +0800 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</p>
+	</div></body>
+</html>

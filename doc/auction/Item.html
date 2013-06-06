@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class Item</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.png";
+				imgMinus.src = "../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name"><img src="../media/images/Class_logo.png"
+														alt=" Class"
+														title=" Class"
+														style="vertical-align: middle"> Item</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Item</p>
+<p class="description"><p>Represents an item put for auction</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">version:</span> $Id: Item.html,v 1.1.1.1 2005/03/01 23:58:53 nicolasconnault Exp $</li>
+				<li><span class="field">copyright:</span> Copyright (c) 2005</li>
+				<li><span class="field">author:</span> nicolas</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_class_item_php.html">/class_item.php</a> (line <span class="field"><a href="..//__filesource/fsource_auction__class_item.php.html#a42">42</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">integer</span>
+					<a href="#$auctionend" title="details" class="var-name">$auctionend</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">integer</span>
+					<a href="#$auctionlength" title="details" class="var-name">$auctionlength</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">array</span>
+					<a href="#$bids" title="details" class="var-name">$bids</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">integer</span>
+					<a href="#$dateentered" title="details" class="var-name">$dateentered</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$description" title="details" class="var-name">$description</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">integer</span>
+					<a href="#$ID" title="details" class="var-name">$ID</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$image" title="details" class="var-name">$image</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">float</span>
+					<a href="#$increment" title="details" class="var-name">$increment</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$name" title="details" class="var-name">$name</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$processed" title="details" class="var-name">$processed</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">float</span>
+					<a href="#$reserve" title="details" class="var-name">$reserve</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">float</span>
+					<a href="#$startprice" title="details" class="var-name">$startprice</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">integer</span>
+					<a href="#$userID" title="details" class="var-name">$userID</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">boolean</span>
+					<a href="#$winning" title="details" class="var-name">$winning</a>
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+					<img src="../media/images/Constructor.png" alt=" "/>
+											<span class="method-result">Item</span>
+										<a href="#Item" title="details" class="method-name">Item</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$fields</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#checkUser" title="details" class="method-name">checkUser</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$userID</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#getBidHistory" title="details" class="method-name">getBidHistory</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#getCategory" title="details" class="method-name">getCategory</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">float</span>
+										<a href="#getCurrentPrice" title="details" class="method-name">getCurrentPrice</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#getDistinctBids" title="details" class="method-name">getDistinctBids</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#getLosingBids" title="details" class="method-name">getLosingBids</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">integer</span>
+										<a href="#getNumberOfBids" title="details" class="method-name">getNumberOfBids</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">integer</span>
+										<a href="#getSecondsLeft" title="details" class="method-name">getSecondsLeft</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../auction/User.html">object User</a></span>
+										<a href="#getSeller" title="details" class="method-name">getSeller</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">object Winning</span>
+										<a href="#getWinningBid" title="details" class="method-name">getWinningBid</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#setAsProcessed" title="details" class="method-name">setAsProcessed</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#setImage" title="details" class="method-name">setImage</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$file</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setWinning" title="details" class="method-name">setWinning</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$userID</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$auctionend" id="$auctionend"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$auctionend</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a90">90</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> auctionend Timestamp obtained by adding auctionlength to dateentered</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$auctionlength" id="$auctionlength"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$auctionlength</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a78">78</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> auctionlength The total length during which this item is on auction (in seconds)</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$bids" id="$bids"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$bids</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a86">86</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> bids An array of Bid objects attached to this item</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$dateentered" id="$dateentered"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$dateentered</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a74">74</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> dateentered The date (timestamp) at which this item was entered in the auction</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$description" id="$description"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$description</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a58">58</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> description A long description of this item (blob)</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$ID" id="$ID"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$ID</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a46">46</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> ID item unique Identification Number</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$image" id="$image"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$image</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a50">50</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> image The relative path to the image representing this item</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$increment" id="$increment"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">float</span>
+			<span class="var-name">$increment</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a70">70</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> increment The value in dollars by which each bid increments the item's price</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$name" id="$name"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$name</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a54">54</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> name The descriptive name of this item</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$processed" id="$processed"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$processed</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a98">98</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> &quot;yes&quot; if item's auction time is finished and it has been processed in consequence</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$reserve" id="$reserve"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">float</span>
+			<span class="var-name">$reserve</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a66">66</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> reserve The reserve price set by the contributor (optional)</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$startprice" id="$startprice"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">float</span>
+			<span class="var-name">$startprice</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a62">62</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> startprice The price at which this item started the auction</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$userID" id="$userID"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$userID</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a82">82</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> userID The unique ID of this item's contributor/seller</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$winning" id="$winning"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$winning</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a94">94</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> &quot;true&quot; if user is winning this bid, &quot;false&quot; if not</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodItem" id="Item"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Constructor.png" />
+		<span class="method-title">Constructor Item</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a107">107</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Item::Item()</p>
+<p class="description"><p>Constructor function</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">Item</span>
+		<span class="method-name">
+			Item
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$fields</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$</span><span class="var-description">: fields The attributes of this item, pulled either implicitely through a query to the database, or explicitely by a user input form</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcheckUser" id="checkUser"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">checkUser</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a232">232</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Item::checkUser()</p>
+<p class="description"><p>Checks whether the item shown for auction has been submitted by the same person who is browsing it.  If that is the case, we disable the &quot;Place bid &gt;&quot; button for this item.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True if the user is different from the contributor, otherwise false</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			checkUser
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$userID</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$userID</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodgetBidHistory" id="getBidHistory"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getBidHistory</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a245">245</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Item::getBidHistory()</p>
+<p class="description"><p>Returns bidding history for the item being viewed.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> of bid objects if successful, error message if failure</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getBidHistory
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCategory" id="getCategory"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getCategory</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a189">189</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Item::getCategory()  Returns the name of the category this item belongs to</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Name and ID of the category this item belongs to, or error message if no record found</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getCategory
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetCurrentPrice" id="getCurrentPrice"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getCurrentPrice</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a151">151</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Item::getCurrentPrice()</p>
+<p class="description"><p>Returns the item's current price (startprice + all bid increments)</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the current price of the item</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">float</span>
+		<span class="method-name">
+			getCurrentPrice
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetDistinctBids" id="getDistinctBids"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getDistinctBids</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a415">415</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getDistinctBids
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetLosingBids" id="getLosingBids"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getLosingBids</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a393">393</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Item::getLosingBids()  Returns an array of losing bids for this expired item</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Bid objects of losers, or FALSE if no loser found</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getLosingBids
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetNumberOfBids" id="getNumberOfBids"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getNumberOfBids</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a166">166</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Item::getNumberOfBids()</p>
+<p class="description"><p>Returns the number of bids on this item</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Number of bids on this item</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getNumberOfBids
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSecondsLeft" id="getSecondsLeft"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getSecondsLeft</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a177">177</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Item::getSecondsLeft()  Returns the number of seconds left before the end of this auction</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Number of seconds left for this item</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getSecondsLeft
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetSeller" id="getSeller"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getSeller</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a209">209</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Item::getSeller()  Returns an object with the attributes of the seller of this item (a User object)</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> object: the contributor/seller</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../auction/User.html">object User</a></span>
+		<span class="method-name">
+			getSeller
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodgetWinningBid" id="getWinningBid"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getWinningBid</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a370">370</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Item::getWinningBid()  Returns the winning bid for this item</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> bid, or FALSE if no winner found</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object Winning</span>
+		<span class="method-name">
+			getWinningBid
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsetAsProcessed" id="setAsProcessed"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setAsProcessed</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a352">352</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Item::setAsProcessed()</p>
+<p class="description"><p>Set this item as processed in the database, meaning it has expired, and may have been won</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if success, error message if failure.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			setAsProcessed
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodsetImage" id="setImage"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setImage</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a296">296</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Item::setImage()</p>
+<p class="description"><p>After validating the image file (size, name etc..), this method sets the image attribute of this item,  and saves the uploaded file from its temporary location to the images folder</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> TRUE if success, error message from validation class if not</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			setImage
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$file</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$file</span><span class="var-description">: An uploaded file</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodsetWinning" id="setWinning"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setWinning</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_item.php.html#a272">272</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Item::setWinning()</p>
+<p class="description"><p>Sets the $winning variable of this item: the boolean of whether the user provided is winning this item or not</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setWinning
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$userID</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$userID</span>			</li>
+				</ul>
+		
+		
+	</div>
+						
+		</div>
+	</div>
+
+	
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 17 Feb 2005 14:20:40 +0800 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</p>
+	</div></body>
+</html>

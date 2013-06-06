@@ -1,0 +1,165 @@
+AUCTION FRAMEWORK -- A complete PHP application 
+for implementing an e-auction on your website.
+By Vickie Comrie, Nicolas Connault and Christopher Vance
+==========================================
+
+Version 0.9.1
+
+Contents
+========
+- Introduction
+- Internet links for the Auction Framework project
+- Requirements
+- Installation steps
+- Development and support
+- About the developers
+- Contact information
+
+
+Introduction
+===========
+Auction Framework is an Open Source PHP application under 
+the GPL license, developped by Vickie Comrie, Nicolas Connault
+and Christopher Vance. It is not intended to compete with such
+auction sites as Ebay, but is intended to be included as a module
+in a wider web application, and was created as a silent auction
+for Operation USA, a charitable organisation. 
+
+Although the Framework supports many features of auction 
+websites, it does not support secure transactions, and is only 
+meant to serve as a third-party tool between internet users and
+the company/group organising the auction. Once bids have been 
+processed, all other transactions, including payments and shipping, 
+are handled outside of the Auction Framework.
+
+The Auction Framework holds data about customers which could be
+considered sensitive, but not vital: contact details and addresses are
+stored, but not banking or other financial information is held. This means
+that, should you implement this framework, you will need to carefully
+consider the inclusion of a privacy statement somewhere on your
+website.
+
+The Auction Framework uses two major libraries which have their own
+copyrights, licenses and authors, and we (the developers) do not modify
+or take responsibility for this code in any way. These libraries are the
+Smarty template engine and the AdoDB database abstraction layer, found
+respectively in auction/libs/Smarty-2.6.6 and auction/libs/adodb. You can
+find the documentations for these libraries in auction/doc.
+
+The Auction Framework is a work in progress, and we hope to include
+many more features in the future. We would appreciate bug reports and
+feedback from users of this Framework, as well as a contribution of 
+talents in design and development.
+
+Regards,
+
+Vickie Comrie, Nicolas Connault and Christopher Vance
+
+
+Internet Links for Auction Framework Project
+======================================
+
+The project isn't currently hosted by SourceForge or on a forum, but
+this will be done shortly.
+
+
+Requirements
+===============
+PHP >4.x
+MySQL
+
+
+Installation steps
+==================
+1. Untar or unzip the files anywhere in your web root (keeping the directory
+structure intact).
+
+2. If under Linux, chmod 777 the following folders:
+	. auction/templates
+	. auction/templates_c
+	. auction/logs
+	. auction/cache
+	. auction/images
+
+3. Run the SQL in auction/sql/auction.sql through your database to set up
+	the tables.  After this is complete, run the SQL in auction-data.sql to
+	load the sample data. Alternatively, use auction_blank.sql to set up an
+	empty database and populate it yourself. You'll need to create a new auction
+	first using the admin panel.
+
+4. Change the DSN in include.php file to match your database needs. The
+	default uses mysql, but you can use any of the databases supported by
+	AdoDB : Access, Ado, Firebird, ibase, Informix, ldap, mssql, mysql, postgresql,
+	oci8, ODBC, Oracle, SQLite and Sybase, to name just a few. Be sure to enter the
+	username and password needed to access the database. Check the AdoDB
+	documentation (auction/doc/adodb.chm) for more information on usage.
+
+5. Log on to the admin panel (auction/admin.php) to edit settings.  The default
+	administrator is accessed with the following:
+Alias (username): root
+Password: administrator
+
+6. Modify auction/css/index.css to change the style of the main index page (index.php)
+	and modify inner.css to style the inner pages.  Modify the templates in
+	auction/templates to change the look and feel of the framework. You will find
+	instructions on how to modify the smarty templates in the Smarty manual
+	(auction/doc/smarty.chm).
+
+That's it!  Feel free to explore the auction site and create user accounts to bid and
+contribute items. To get you started, the three sample users are included with this beta.
+They are "user1" "user2" and "user3". These three accounts all use "password" as their password.
+
+
+
+Known Issues
+==============
+1. admin_auction.php: When editing configuration settings for the silent auction, updating the
+settings results in error notices being printed at the top of the screen.  The development team
+needs to review the origin of these messages.
+
+2. Many of the links in the footer section of the site have not been defined.
+
+3. editaccount.php: When logged in, the layout appears to break in Firefox.
+
+Development and Support
+=========================
+This will be done through the forum/blog, which is not yet in place. You may also
+check the FAQ document which comes with this distribution.
+
+
+About the Developers
+======================
+Vickie Comrie:
+	
+Nicolas Connault:
+	A french man living in Australia, Nicolas is happily married to Anne-Marie, an 
+	Australian girl he met while chatting on ICQ. He is a student in psychology, but
+	has been learning and programming in PHP for over 4 years, was involved in a fair
+	number of projects, this one being the first major one. He checks his mail 2000 times
+	a day, so contact is not an issue. Interests are programming, psychology, religion, 
+	books and sports.
+
+Christopher Vance:
+	An American living in Massachusetts, Christopher has a Bachelor of Science degree
+	in Computer Science from Worcester Polytechnic Institute in Massachusetts. He works
+	as a Programmer Analyst for Staples, a multinational office supply company. His
+	interests include developing and playing computer games, developing software,
+	blogging, Ultimate Frisbee, poker, and billiards.
+
+Contact Information
+=====================
+Vickie Comrie:
+	email: vrcomrie@gmail.com
+	AIM screenname: nikanese
+
+Nicolas Connault:
+	email: nicou@sweetpeadesigns.com.au
+	phone: 08 9795 6713 (Australia)
+	AIM screenname: NikoZeta
+	Yahoo: nicolasconnault
+	ICQ: 826611
+	
+Christopher Vance:
+	email: christopher.vance@gmail.com
+	phone: 860 836 6357 (USA)
+	AIM screenname: cgichris 

@@ -1,0 +1,172 @@
+[12-06-05]
+Bug 23: submititem.php: category provided by form input is not validated.  User can save form locally to computer, 
+	modify, and use this form to submit items to the auction which have non-existent category IDs.  Correct behavior
+	should be to check that the category ID given is an existing category.
+	* [12-06-05, 11:30pm] Bug 23 resolved, created validation function to check category input against the auction_categories table.
+
+[24-05-05]
+Bug 22: items.php: the content of the page isn't contained by the page. CSS or TPL issue
+
+Bug 21: admin_edititem.php : the footer doesn't stick to the bottom of the page. CSS or TPL issue
+
+******************** [19-05-2005, 10:10pm] ALL BUGS RESOLVED ********************
+[17-04-2005]
+
+Bug 20: Determine why admin login is not working.  If either the username or password are left blank, the error message
+	is displayed.  If both are filled in, the page after hitting the Login button is blank.
+	* [19-05-2005, 9:26am] Bug 20 resolved at some point in the past, required reloading the admin table.
+
+Bug 19: The sidebar listing for items can sometimes suggest one item is available but categories.php does not show
+	any items in that category.  Probably need to handle situation when an error is returned from the code and
+	the auction code counts the error string as one item.
+	* [19-05-2005, 9:26am] Bug 19 resolved, the category.php code checks to see whether the returned data consists
+	of an array (data).  If not, there was an error and the error variable is set.  The class code being called also
+	correctly checks to see whether the resultset returned from the DB query contains at least one (1) record.  If
+	not, an error is returned.
+
+[14-02-2005]
+
+Bug 18: submititem.php: There is no validation for picture's pixel size, so that, in the preview and item
+	listing, we can end up with absolutely huge photos that push all the form out of the layout. We must find
+	a way to monitor image dimensions.
+	NOTE: use getImageSize() to get the dimensions of the uploaded file, then resize it with imagecopyresized().
+	* [13-02-2005] Bug 18 Solved
+	
+[12-02-2005]
+
+Bug 17: searchresults.php and class_search.php are not handling searches with no matching results correctly.
+	* [12-02-2005 10:45pm] Resolved bug 17: added a condition to the search class: empty recordset, in
+	addition to the false recordset. It seems that a false recordset is only returned if there is an error
+	in the query. This query will likely never return an error, so the recordset will always be true.
+
+[11-02-2005]
+
+Bug 16: Item that has expired without any bids shows up in the "items you have sold" section
+	* [14-02-2005 1:53pm] Bug 16 resolved: errors in SQL queries, class_auction.php.
+Bug 15:
+	submititem.php: When entering a file that is too large, the error message is "All fields are required"
+	instead of the proper "File too large" message.
+	
+	* [14-02-2005 8:55am] Bug 15 Resolved: left validation of file size entirely up to validation class instead
+	of partly to HTML MAXSIZE attribute.
+	
+Bug 14:
+	register.php: After filling out correct information, a success message appears, but user is not
+	logged in, the form is still there, although the user is recorded and can be logged in as normal.
+	Also, country is not recorded. This could be the problem.
+	
+	* [14-02-2005 8:33am] Bug 14 resolved: needed to re-assign the authorised variable to the template
+	after validating user input. (usually gets assigned in the include.php file)
+
+Bug 13:
+	submititem.php: Leaving the Image field blank results in an error of "Array."  Is the image
+	field error handling not expecting an array to be returned?  The error array is defined in
+	class_item.php.
+	
+	* [11-02-2005, 10:20am] Bug 13 resolved! The result was already an array returned by the validation
+	class, and was being wrapped a second time inside an array by the item class.
+
+Bug 12:
+	submititem.php: Using the dollar sign ($) in Starting Price, Bid Increment, and Reserve Price
+	all lead to errors that the value is too low.  We should perhaps consider stripping the $ sign
+	(and other illegal characters, like letters and @$!) on the server side (because JavaScript can
+	be disabled).
+	
+	* [11-02-2005, 10:18am] Bug 12 resolved! Created a new regular expression for price fields.
+	
+	******************** [09-02-2005, 9:19pm] ALL BUGS RESOLVED ********************
+
+Bug 11:
+	editaccount.php: When submitting changes, some values from the session are filling the fields
+	instead of values from the database.
+	
+	* [09-02-2005, 9:17pm] Bug 11 resolved! $user object was being sent from the include.php file, it
+	needed to be re-sent within editaccount.php after changes were processed for the user object. 
+	
+Bug 10:
+	register.php: After filling out the form properly, I get this message: 
+	"You have successfully registered as a user on this auction site. 
+	You may go to "MyAccount" to edit your detailsYou have been successfully logged in as kjkj"
+	And the top menu tells me I'm not logged in ...
+	
+	* [09-02-2005, 3:00pm] Bug 10 resolved!
+
+[09-02-2005]
+
+Bug 9:
+	login.php: After changing the error handling methods to returning an array instead of a string, 
+	validation is broken: seems to always return TRUE;
+	
+	* [09-02-2005, 3:00pm] Bug 9 resolved!
+	
+	******************** [09-02-2005, 9:35am] ALL BUGS RESOLVED ********************
+	
+Bug 8:
+	placebid.php: Authentication and processing still not working. The issue started when
+	I tried to prevent the user from re-submitting the same bid by refreshing the page.
+	I am now thinking that, since the user gets a warning about resubmitting POST data
+	anyway, we could just make it more obvious by sending a message saying: Please do not
+	refresh this page. A guaranteed prevention would be better, but we'll add it to the
+	TODO list as soon as this bug is corrected.
+	
+	* [08-02-2005, 5:05pm] Bug 8 resolved as explained above: still need bidduplication prevention
+	
+Bug 7:
+	submititem.php: When there is an error, and the form is displayed again, 
+	the (optional) reserve price is reset to match the bid increment.
+	
+	* [09-02-2005, 9:34am] Bug 7 resolved.	
+
+Bug 6:
+	submititem.php: If there is an error, and the form needs to be displayed again, 
+	the values entered for the category and the image are not repopulated.  
+	Category can be solved by using selected="selected" for the category selected by the user.
+	Not sure if the image upload field can be repopulated and still work correctly.
+
+	* [09-02-2005, 9:26am] Bug 6 resolved, but image upload field cannot be repopulated.
+
+Bug 5:
+	submititem.php: Apostrophes are normally escaped.  If there is an error, 
+	and the form needs to be displayed again, the fields are populated with 
+	their old data.  The slash to escape the apostrophe is shown on the page.  
+	Once the page is resubmitted, and there is an error, both the slash and 
+	the apostrophe are escaped again with a slash.  Correct behavior: don't 
+	escape apostrophes until the item will be submitted, or check for problems 
+	but still keep a copy of the original data around, to be used to repopulate 
+	the form.
+	
+	* [08-02-2005, 5:05pm] Bug 5 resolved partly: added a custom function array_stripslashes().
+	This function strips slashes from the entries in an array. I use it on the POST data,
+	so that the quotes don't get escaped. A few strings in the preview section still need to 
+	have their slashes stripped, but the data gets recorded in the DB just fine. 
+
+[04-02-2005]
+Bug 4:
+	submititem.php: If the category field is left blank, the error which 
+	appears when the form is submitted reads "All fields are required, 
+	including categoryID." This error should read "Category" or "category," 
+	rather than the internal name for the field, categoryID.
+	
+	* [08-02-2005, 1:50pm] Resolved bug 4 partially: only showing "All fields required".
+		Issue now moved to TODO list
+
+[04-02-2005]
+	* [9:49 am] Resolved bug 3: Booleans were being evaluated using == instead of ===
+
+[03-02-2005]
+Bug 3:
+	submititem.php: Validation is broken, says wrong protocol. Check Item::set_image($file) and Validate::check_image($file)
+	
+	* [09-02-2005, 9:26am] Bug 3 resolved.
+
+Bug 2:
+	When user isn't logged in, the bidding button doesn't get disabled in items.php
+		
+	* [10:48 am] Resolved bug 2: Smarty {if} condition not set up properly in auction_items.tpl
+	* [11:00 am] Resolved bug 1: Source was actually in items.php: session variable $authorised not checked
+	
+[02-02-2005]
+Bug 1: 
+	When user isn't logged in, he still gets a "You are winning this item" message when visiting
+	some items.
+	--> source of problem: class_item.php::set_winning($userID)

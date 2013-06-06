@@ -1,0 +1,1 @@
+a:15:{i:1;s:10:"30 minutes";i:2;s:10:"60 minutes";i:3;s:10:"90 minutes";i:4;s:11:"120 minutes";i:5;s:7:"3 hours";i:6;s:7:"4 hours";i:7;s:7:"5 hours";i:8;s:7:"6 hours";i:9;s:7:"7 hours";i:10;s:7:"8 hours";i:11;s:8:"24 hours";i:12;s:8:"48 hours";i:13;s:9:"Four days";i:14;s:8:"Six days";i:15;s:7:"10 days";}

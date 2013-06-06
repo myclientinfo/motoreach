@@ -1,0 +1,1 @@
+<?phprequire_once 'include.php';if(isset($_GET['sel']) && !isset($_SESSION['sel'])){	$_SESSION['sel'] = $GLOBALS['project'];	header('location: /');}$main_content = new Template('auction_index');$miniform = new Template('basicvehicle');$main_content->set('miniform', $miniform->fetch());$template->set('content', $main_content->fetch());echo $template->fetch();?>

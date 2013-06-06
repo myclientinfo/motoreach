@@ -1,0 +1,1 @@
+a:3:{i:3;s:11:"Cloth/Vinyl";i:1;s:7:"Leather";i:2;s:15:"Partial Leather";}

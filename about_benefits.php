@@ -1,0 +1,1 @@
+<?phprequire_once 'include.php';$main_content = new Template('about_benefits');$template->set('content', $main_content->fetch());echo $template->fetch();?>

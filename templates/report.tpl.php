@@ -1,0 +1,1 @@
+<?phpecho '<h3>'.$headers['vehicles_period']."</h3>\n\n";if(!empty($listed_vehicles)){	echo "<table>\n";	foreach($listed_vehicles as $v){		echo "<tr>\n";		echo "	<td>".$v['make'].' '.$v['model'].' '.$v['badge'].' '.$v['series'] ."</td>\n";		echo "	<td>$".$v['startprice'] ."</td>\n";		echo "</tr>\n";	}	echo '</table>';}?>

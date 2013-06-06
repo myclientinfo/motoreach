@@ -1,0 +1,30 @@
+###### EDIT ONLY UNDER THIS NOTICE #######
+##  Add date the tasks were completed   ##
+## underneath each task, indented once. ##
+##  These tasks are order by priority,  ##
+## with the most important on top. Once ##
+##   a task is completed, move it down  ##
+##     past the "completed" label       ##
+##########################################
+( ) Confirm if older versions of MySQL cannot run the auction (nicolasconnault.phenominet.com development site is running 3.23.58)
+
+( ) Create an install script that sets up all the default settings, including company info and DB tables
+
+( ) Bidding History: Add configuration option for displaying the history of users who bid
+	on the item, and decide what information should be displayed
+
+( ) Implement admin function for dumping an entire list of items for auction (charity auction)
+	from a document like XML, SQL, csv, txt or even Excel spreadsheet.
+
+( ) Revise entire phpdoc comments
+
+( ) Implement user feedback system
+
+( ) Design a more elegant smarty construct for error field highlighting (that doesn't use the {if} tag)
+
+( ) Prevent user from duplicating bid by refreshing the page after placing a bid. (JS redirection?)
+
+( ) Edit entire site content and replace all output strings to message constants
+
+########## COMPLETED #########
+Moved to CHANGELOG

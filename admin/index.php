@@ -1,0 +1,1 @@
+<?php require_once '../include.php';if(!User::hasPermission('Admin')){	header('location: /index.php');	die();}$main_content = new Template('admin_index');$template->set('content', $main_content->fetch());echo $template->fetch();?>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>File Source for class_mailman.php</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+											</head>
+		<body>
+						<h1>Source for file class_mailman.php</h1>
+<p>Documentation is available at <a href="../auction/_class_mailman_php.html">class_mailman.php</a></p>
+<div class="src-code">
+<pre><ol><li><a name="a1"></a><span class="src-php">&lt;?php</span></li>
+<li><a name="a2"></a><span class="src-doc">/**</span></li>
+<li><a name="a3"></a><span class="src-doc">* </span></li>
+<li><a name="a4"></a><span class="src-doc">* </span><span class="src-doc-coretag">@package</span><span class="src-doc"> auction</span></li>
+<li><a name="a5"></a><span class="src-doc">* </span></li>
+<li><a name="a6"></a><span class="src-doc">*  These classes are a complete auction framework, ready to implement using a minimum amount of procedural PHP code,</span></li>
+<li><a name="a7"></a><span class="src-doc">*  and a templating system like Smarty. The database abstraction layer AdoDB is used.</span></li>
+<li><a name="a8"></a><span class="src-doc">* </span><span class="src-doc-coretag">@version</span><span class="src-doc"> $Id: fsource_auction__class_mailman.php.html,v 1.1.1.1 2005/03/01 23:59:16 nicolasconnault Exp $</span></li>
+<li><a name="a9"></a><span class="src-doc">* </span><span class="src-doc-coretag">@copyright</span><span class="src-doc"> 2005</span></li>
+<li><a name="a10"></a><span class="src-doc">*/</span></li>
+<li><a name="a11"></a>&nbsp;</li>
+<li><a name="a12"></a><span class="src-doc">/**</span></li>
+<li><a name="a13"></a><span class="src-doc">* Copyright (C) 2005 Vickie Comrie, Nicolas Connault, Christopher Vance</span></li>
+<li><a name="a14"></a><span class="src-doc">* </span></li>
+<li><a name="a15"></a><span class="src-doc">* Vickie Comrie: &lt;vrcomrie@myway.com&gt;</span></li>
+<li><a name="a16"></a><span class="src-doc">* Nicolas Connault: &lt;nicou@sweetpeadesigns.com.au&gt;</span></li>
+<li><a name="a17"></a><span class="src-doc">* Christopher Vance: &lt;christopher.vance@gmail.com&gt;</span></li>
+<li><a name="a18"></a><span class="src-doc">* </span></li>
+<li><a name="a19"></a><span class="src-doc">* This program is free software; you can redistribute it and/or</span></li>
+<li><a name="a20"></a><span class="src-doc">* modify it under the terms of the GNU General Public License</span></li>
+<li><a name="a21"></a><span class="src-doc">* as published by the Free Software Foundation; either version 2</span></li>
+<li><a name="a22"></a><span class="src-doc">* of the License, or (at your option) any later version.</span></li>
+<li><a name="a23"></a><span class="src-doc">* </span></li>
+<li><a name="a24"></a><span class="src-doc">* This program is distributed in the hope that it will be useful,</span></li>
+<li><a name="a25"></a><span class="src-doc">* but WITHOUT ANY WARRANTY; without even the implied warranty of</span></li>
+<li><a name="a26"></a><span class="src-doc">* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></li>
+<li><a name="a27"></a><span class="src-doc">* GNU General Public License for more details.</span></li>
+<li><a name="a28"></a><span class="src-doc">* </span></li>
+<li><a name="a29"></a><span class="src-doc">* You should have received a copy of the GNU General Public License</span></li>
+<li><a name="a30"></a><span class="src-doc">* along with this program; if not, write to the Free Software</span></li>
+<li><a name="a31"></a><span class="src-doc">* Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.</span></li>
+<li><a name="a32"></a><span class="src-doc">*/</span></li>
+<li><a name="a33"></a>&nbsp;</li>
+<li><a name="a34"></a><span class="src-doc">/**</span></li>
+<li><a name="a35"></a><span class="src-doc">* Mailman</span></li>
+<li><a name="a36"></a><span class="src-doc">* </span></li>
+<li><a name="a37"></a><span class="src-doc">* </span><span class="src-doc-coretag">@todo</span><span class="src-doc"> consider sending HTML/plain text multipart email messages</span></li>
+<li><a name="a38"></a><span class="src-doc">* </span></li>
+<li><a name="a39"></a><span class="src-doc">*  Automatic Emailer</span></li>
+<li><a name="a40"></a><span class="src-doc">* </span><span class="src-doc-coretag">@package</span><span class="src-doc"> auction</span></li>
+<li><a name="a41"></a><span class="src-doc">* </span><span class="src-doc-coretag">@author</span><span class="src-doc"> nicolas</span></li>
+<li><a name="a42"></a><span class="src-doc">* </span><span class="src-doc-coretag">@copyright</span><span class="src-doc"> Copyright (c) 2005</span></li>
+<li><a name="a43"></a><span class="src-doc">* </span><span class="src-doc-coretag">@version</span><span class="src-doc"> $Id: fsource_auction__class_mailman.php.html,v 1.1.1.1 2005/03/01 23:59:16 nicolasconnault Exp $</span></li>
+<li><a name="a44"></a><span class="src-doc">* </span><span class="src-doc-coretag">@access</span><span class="src-doc"> public</span></li>
+<li><a name="a45"></a><span class="src-doc">*/</span></li>
+<li><a name="a46"></a>&nbsp;</li>
+<li><a name="a47"></a><span class="src-key">class </span><a href="../auction/Mailman.html">Mailman</a><span class="src-sym">{</span></li>
+<li><a name="a48"></a>    <span class="src-doc">/**</span></li>
+<li><a name="a49"></a><span class="src-doc">    * </span></li>
+<li><a name="a50"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@var </span><span class="src-doc-type">string </span><span class="src-doc">auctionURL complete URL ending in slash which identifies the root folder for the auction software.  This variable should be deprecated by a config file option to set the URL.</span></li>
+<li><a name="a51"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@access</span><span class="src-doc"> private</span></li>
+<li><a name="a52"></a><span class="src-doc">    */</span></li>
+<li><a name="a53"></a>    <span class="src-key">var </span><span class="src-var">$auctionURL </span><span class="src-sym">;</span></li>
+<li><a name="a54"></a>&nbsp;</li>
+<li><a name="a55"></a>    <span class="src-doc">/**</span></li>
+<li><a name="a56"></a><span class="src-doc">    * Mailman::Mailman()</span></li>
+<li><a name="a57"></a><span class="src-doc">    * Constructor function</span></li>
+<li><a name="a58"></a><span class="src-doc">    */</span></li>
+<li><a name="a59"></a>    <span class="src-key">function </span><a href="../auction/Mailman.html#methodMailman">Mailman</a><span class="src-sym">(</span><span class="src-sym">)</span></li>
+<li><a name="a60"></a>    <span class="src-sym">{</span></li>
+<li><a name="a61"></a>        <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">auctionURL </span>= <span class="src-str">'http://nicolasconnault.phenominet.com/'</span><span class="src-sym">;</span></li>
+<li><a name="a62"></a>    <span class="src-sym">}</span></li>
+<li><a name="a63"></a>&nbsp;</li>
+<li><a name="a64"></a>    <span class="src-doc">/**</span></li>
+<li><a name="a65"></a><span class="src-doc">    * Mailman::noticeBid()</span></li>
+<li><a name="a66"></a><span class="src-doc">    * </span></li>
+<li><a name="a67"></a><span class="src-doc">    * Sends the buyer a notice that his bid has been registered, and that he is the current</span></li>
+<li><a name="a68"></a><span class="src-doc">    * winner of the item. Can also send the seller a notice that his item has received a bid</span></li>
+<li><a name="a69"></a><span class="src-doc">    * </span></li>
+<li><a name="a70"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">object </span><span class="src-doc-var">$bid </span></li>
+<li><a name="a71"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@return </span><span class="src-doc-type">boolean </span><span class="src-doc">TRUE if success, string error message if not</span></li>
+<li><a name="a72"></a><span class="src-doc">    */</span></li>
+<li><a name="a73"></a>    <span class="src-key">function </span><a href="../auction/Mailman.html#methodnoticeBid">noticeBid</a><span class="src-sym">(</span><span class="src-var">$bid</span><span class="src-sym">)</span></li>
+<li><a name="a74"></a>    <span class="src-sym">{ </span></li>
+<li><a name="a75"></a>        <span class="src-comm">// subject of email</span></li>
+<li><a name="a76"></a>        <span class="src-var">$subject </span>= <span class="src-str">'You are currently winning bidding - item &quot;[noticeItemName]&quot;'</span><span class="src-sym">; </span></li>
+<li><a name="a77"></a>        <span class="src-comm">// email message body</span></li>
+<li><a name="a78"></a>        <span class="src-var">$message </span>= <span class="src-str">&quot;</span><span class="src-str"><span class="src-id">Hello</span> <span class="src-sym">[</span><span class="src-id">noticeFullname</span><span class="src-sym">]</span></span></li>
+<li><a name="a79"></a></span><span class="src-str"><span class="src-id">You</span> <span class="src-id">are</span> <span class="src-id">winning</span> <span class="src-id">the</span> <span class="src-id">bidding</span> <span class="src-id">for</span> <span class="src-id">item</span> \&quot;<span class="src-sym">[</span><span class="src-id">noticeItemName</span><span class="src-sym">]</span>\&quot; ({<span class="src-var">$auctionURL</span><span class="src-sym">}</span><span class="src-id">items</span>.<span class="src-id">php</span>?<span class="src-id">itemID</span>={<span class="src-var">$bid</span></span><span class="src-sym">-&gt;</span><span class="src-id">itemID</span><span class="src-str"></span><span class="src-sym">}</span>).</span><span class="src-str">&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a80"></a>&nbsp;</li>
+<li><a name="a81"></a>        <span class="src-key">return </span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">noticePrivateMailer</span><span class="src-sym">(</span><span class="src-var">$bid</span><span class="src-sym">, </span><span class="src-var">$subject</span><span class="src-sym">, </span><span class="src-var">$message</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a82"></a>    <span class="src-sym">}</span></li>
+<li><a name="a83"></a>&nbsp;</li>
+<li><a name="a84"></a>    <span class="src-doc">/**</span></li>
+<li><a name="a85"></a><span class="src-doc">    * Mailman::noticeOutbid()</span></li>
+<li><a name="a86"></a><span class="src-doc">    * </span></li>
+<li><a name="a87"></a><span class="src-doc">    * Sends the buyer a notice that he has been outbid by another user</span></li>
+<li><a name="a88"></a><span class="src-doc">    * </span></li>
+<li><a name="a89"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">object </span><span class="src-doc-var">$bid </span></li>
+<li><a name="a90"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@return </span><span class="src-doc-type">success </span><span class="src-doc">message</span></li>
+<li><a name="a91"></a><span class="src-doc">    */</span></li>
+<li><a name="a92"></a>    <span class="src-key">function </span><a href="../auction/Mailman.html#methodnoticeOutbid">noticeOutbid</a><span class="src-sym">(</span><span class="src-var">$bid</span><span class="src-sym">)</span></li>
+<li><a name="a93"></a>    <span class="src-sym">{ </span></li>
+<li><a name="a94"></a>        <span class="src-comm">// subject of email</span></li>
+<li><a name="a95"></a>        <span class="src-var">$subject </span>= <span class="src-str">'You have been outbid - item &quot;[noticeItemName]&quot;'</span><span class="src-sym">; </span></li>
+<li><a name="a96"></a>        <span class="src-comm">// email message body</span></li>
+<li><a name="a97"></a>        <span class="src-var">$message </span>= <span class="src-str">&quot;</span><span class="src-str"><span class="src-id">Hello</span> <span class="src-sym">[</span><span class="src-id">noticeFullname</span><span class="src-sym">]</span></span></li>
+<li><a name="a98"></a></span><span class="src-str"><span class="src-id">You</span> <span class="src-id">have</span> <span class="src-id">been</span> <span class="src-id">outbid</span> <span class="src-id">by</span> <span class="src-id">another</span> <span class="src-id">user</span> <span class="src-id">for</span> <span class="src-id">item</span> \&quot;<span class="src-sym">[</span><span class="src-id">noticeItemName</span><span class="src-sym">]</span>\&quot; ({<span class="src-var">$auctionURL</span><span class="src-sym">}</span><span class="src-id">items</span>.<span class="src-id">php</span>?<span class="src-id">itemID</span>={<span class="src-var">$bid</span></span><span class="src-sym">-&gt;</span><span class="src-id">itemID</span><span class="src-str"></span><span class="src-sym">}</span>).</span><span class="src-str">&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a99"></a>&nbsp;</li>
+<li><a name="a100"></a>        <span class="src-key">return </span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">noticePrivateMailer</span><span class="src-sym">(</span><span class="src-var">$bid</span><span class="src-sym">, </span><span class="src-var">$subject</span><span class="src-sym">, </span><span class="src-var">$message</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a101"></a>    <span class="src-sym">}</span></li>
+<li><a name="a102"></a>&nbsp;</li>
+<li><a name="a103"></a>    <span class="src-doc">/**</span></li>
+<li><a name="a104"></a><span class="src-doc">    * Mailman::noticeLose()</span></li>
+<li><a name="a105"></a><span class="src-doc">    * </span></li>
+<li><a name="a106"></a><span class="src-doc">    * Sends a user a notice that he has lost his bid on a given item</span></li>
+<li><a name="a107"></a><span class="src-doc">    * </span></li>
+<li><a name="a108"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">object </span><span class="src-doc-var">$bid </span></li>
+<li><a name="a109"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@return </span><span class="src-doc-type">success </span><span class="src-doc">message</span></li>
+<li><a name="a110"></a><span class="src-doc">    */</span></li>
+<li><a name="a111"></a>    <span class="src-key">function </span><a href="../auction/Mailman.html#methodnoticeLose">noticeLose</a><span class="src-sym">(</span><span class="src-var">$bid</span><span class="src-sym">)</span></li>
+<li><a name="a112"></a>    <span class="src-sym">{ </span></li>
+<li><a name="a113"></a>        <span class="src-comm">// subject of email</span></li>
+<li><a name="a114"></a>        <span class="src-var">$subject </span>= <span class="src-str">'You have lost the auction - item &quot;[noticeItemName]&quot;'</span><span class="src-sym">; </span></li>
+<li><a name="a115"></a>        <span class="src-comm">// email message body</span></li>
+<li><a name="a116"></a>        <span class="src-var">$message </span>= <span class="src-id">AUCTION_GREETING </span>. <span class="src-str">&quot;</span><span class="src-str"> <span class="src-sym">[</span><span class="src-id">noticeFullname</span><span class="src-sym">]</span> </span></li>
+<li><a name="a117"></a></span><span class="src-str"><span class="src-id">We</span>\'<span class="src-id">re</span> <span class="src-id">sorry</span>, <span class="src-id">but</span> <span class="src-id">the</span> <span class="src-id">auction</span> <span class="src-id">for</span> <span class="src-id">item</span> \&quot;<span class="src-sym">[</span><span class="src-id">noticeItemName</span><span class="src-sym">]</span>\&quot; ({<span class="src-var">$auctionURL</span><span class="src-sym">}</span><span class="src-id">items</span>.<span class="src-id">php</span>?<span class="src-id">itemID</span>={<span class="src-var">$bid</span></span><span class="src-sym">-&gt;</span><span class="src-id">itemID</span><span class="src-str"></span><span class="src-sym">}</span>) <span class="src-id">has</span> <span class="src-id">closed</span>.</span></li>
+<li><a name="a118"></a></span><span class="src-str"><span class="src-id">You</span> <span class="src-id">did</span> <span class="src-id">not</span> <span class="src-id">win</span> <span class="src-id">the</span> <span class="src-id">auction</span>.</span><span class="src-str">&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a119"></a>&nbsp;</li>
+<li><a name="a120"></a>        <span class="src-key">return </span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">noticePrivateMailer</span><span class="src-sym">(</span><span class="src-var">$bid</span><span class="src-sym">, </span><span class="src-var">$subject</span><span class="src-sym">, </span><span class="src-var">$message</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a121"></a>    <span class="src-sym">}</span></li>
+<li><a name="a122"></a>&nbsp;</li>
+<li><a name="a123"></a>    <span class="src-doc">/**</span></li>
+<li><a name="a124"></a><span class="src-doc">    * Mailman::noticeWin()</span></li>
+<li><a name="a125"></a><span class="src-doc">    * </span></li>
+<li><a name="a126"></a><span class="src-doc">    * Sends a user a notice that he has win an item on auction</span></li>
+<li><a name="a127"></a><span class="src-doc">    * </span></li>
+<li><a name="a128"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">object </span><span class="src-doc-var">$bid </span></li>
+<li><a name="a129"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@return </span><span class="src-doc-type">success </span><span class="src-doc">message</span></li>
+<li><a name="a130"></a><span class="src-doc">    */</span></li>
+<li><a name="a131"></a>    <span class="src-key">function </span><a href="../auction/Mailman.html#methodnoticeWin">noticeWin</a><span class="src-sym">(</span><span class="src-var">$bid</span><span class="src-sym">)</span></li>
+<li><a name="a132"></a>    <span class="src-sym">{ </span></li>
+<li><a name="a133"></a>        <span class="src-comm">// subject of email</span></li>
+<li><a name="a134"></a>        <span class="src-var">$subject </span>= <span class="src-id">AUCTION_NOTICE_ITEM_WON_SUBJECT </span>. <span class="src-str">'&quot;[noticeItemName]&quot;'</span><span class="src-sym">; </span></li>
+<li><a name="a135"></a>        <span class="src-comm">// email message body</span></li>
+<li><a name="a136"></a>        <span class="src-var">$message </span>= <span class="src-id">AUCTION_GREETING </span>. <span class="src-str">&quot;[noticeFullname]&quot; </span>.</li>
+<li><a name="a137"></a>        <span class="src-id">AUCTION_NOTICE_ITEM_WON_BODY </span>. <span class="src-str">&quot;</span><span class="src-str">\&quot;<span class="src-sym">[</span><span class="src-id">noticeItemName</span><span class="src-sym">]</span>\&quot; ({<span class="src-var">$auctionURL</span><span class="src-sym">}</span><span class="src-id">items</span>.<span class="src-id">php</span>?<span class="src-id">itemID</span>={<span class="src-var">$bid</span></span><span class="src-sym">-&gt;</span><span class="src-id">itemID</span><span class="src-str"></span><span class="src-sym">}</span></span><span class="src-str">&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a138"></a>&nbsp;</li>
+<li><a name="a139"></a>        <span class="src-key">return </span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">noticePrivateMailer</span><span class="src-sym">(</span><span class="src-var">$bid</span><span class="src-sym">, </span><span class="src-var">$subject</span><span class="src-sym">, </span><span class="src-var">$message</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a140"></a>    <span class="src-sym">}</span></li>
+<li><a name="a141"></a>&nbsp;</li>
+<li><a name="a142"></a><span class="src-doc">/**</span></li>
+<li><a name="a143"></a><span class="src-doc">    * Mailman::noticeReserveNotMet()</span></li>
+<li><a name="a144"></a><span class="src-doc">    * </span></li>
+<li><a name="a145"></a><span class="src-doc">    * Sends a user a notice that the item he has bid on has expired and not met its reserve</span></li>
+<li><a name="a146"></a><span class="src-doc">    * </span></li>
+<li><a name="a147"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">object </span><span class="src-doc-var">$bid </span></li>
+<li><a name="a148"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@return </span><span class="src-doc-type">success </span><span class="src-doc">message</span></li>
+<li><a name="a149"></a><span class="src-doc">    */</span></li>
+<li><a name="a150"></a>    <span class="src-key">function </span><a href="../auction/Mailman.html#methodnoticeReserveNotMet">noticeReserveNotMet</a><span class="src-sym">(</span><span class="src-var">$bid</span><span class="src-sym">)</span></li>
+<li><a name="a151"></a>    <span class="src-sym">{ </span></li>
+<li><a name="a152"></a>        <span class="src-comm">// subject of email</span></li>
+<li><a name="a153"></a>        <span class="src-var">$subject </span>= <span class="src-id">AUCTION_NOTICE_RESERVE_NOT_MET </span>. <span class="src-str">'&quot;[noticeItemName]&quot;'</span><span class="src-sym">; </span></li>
+<li><a name="a154"></a>        <span class="src-comm">// email message body</span></li>
+<li><a name="a155"></a>        <span class="src-var">$message </span>= <span class="src-id">AUCTION_GREETING </span>. <span class="src-str">&quot;[noticeFullname]&quot; </span>.</li>
+<li><a name="a156"></a>        <span class="src-id">AUCTION_NOTICE_RESERVE_NOT_MET </span>. <span class="src-str">&quot;</span><span class="src-str">\&quot;<span class="src-sym">[</span><span class="src-id">noticeItemName</span><span class="src-sym">]</span>\&quot; ({<span class="src-var">$auctionURL</span><span class="src-sym">}</span><span class="src-id">items</span>.<span class="src-id">php</span>?<span class="src-id">itemID</span>={<span class="src-var">$bid</span></span><span class="src-sym">-&gt;</span><span class="src-id">itemID</span><span class="src-str"></span><span class="src-sym">}</span></span><span class="src-str">&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a157"></a>&nbsp;</li>
+<li><a name="a158"></a>        <span class="src-key">return </span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">noticePrivateMailer</span><span class="src-sym">(</span><span class="src-var">$bid</span><span class="src-sym">, </span><span class="src-var">$subject</span><span class="src-sym">, </span><span class="src-var">$message</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a159"></a>    <span class="src-sym">}</span></li>
+<li><a name="a160"></a>    </li>
+<li><a name="a161"></a><span class="src-doc">/**</span></li>
+<li><a name="a162"></a><span class="src-doc">    * Mailman::noticeItemSold()</span></li>
+<li><a name="a163"></a><span class="src-doc">    * </span></li>
+<li><a name="a164"></a><span class="src-doc">    * Sends a seller a notice that one of his items on auction has been sold</span></li>
+<li><a name="a165"></a><span class="src-doc">    * </span></li>
+<li><a name="a166"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">object </span><span class="src-doc-var">$bid </span></li>
+<li><a name="a167"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@return </span><span class="src-doc-type">success </span><span class="src-doc">message</span></li>
+<li><a name="a168"></a><span class="src-doc">    */</span></li>
+<li><a name="a169"></a>    <span class="src-key">function </span><a href="../auction/Mailman.html#methodnoticeItemSold">noticeItemSold</a><span class="src-sym">(</span><span class="src-var">$bid</span><span class="src-sym">)</span></li>
+<li><a name="a170"></a>    <span class="src-sym">{ </span></li>
+<li><a name="a171"></a>        <span class="src-comm">// subject of email</span></li>
+<li><a name="a172"></a>        <span class="src-var">$subject </span>= <span class="src-id">AUCTION_NOTICE_ITEM_SOLD </span>. <span class="src-str">'&quot;[noticeItemName]&quot;'</span><span class="src-sym">; </span></li>
+<li><a name="a173"></a>        <span class="src-comm">// email message body</span></li>
+<li><a name="a174"></a>        <span class="src-var">$message </span>= <span class="src-id">AUCTION_GREETING </span>. <span class="src-str">&quot;[noticeFullname]&quot; </span>.</li>
+<li><a name="a175"></a>        <span class="src-id">AUCTION_NOTICE_ITEM_SOLD </span>. <span class="src-str">&quot;</span><span class="src-str">\&quot;<span class="src-sym">[</span><span class="src-id">noticeItemName</span><span class="src-sym">]</span>\&quot; ({<span class="src-var">$auctionURL</span><span class="src-sym">}</span><span class="src-id">items</span>.<span class="src-id">php</span>?<span class="src-id">itemID</span>={<span class="src-var">$bid</span></span><span class="src-sym">-&gt;</span><span class="src-id">itemID</span><span class="src-str"></span><span class="src-sym">}</span></span><span class="src-str">&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a176"></a>&nbsp;</li>
+<li><a name="a177"></a>        <span class="src-key">return </span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">noticePrivateMailer</span><span class="src-sym">(</span><span class="src-var">$bid</span><span class="src-sym">, </span><span class="src-var">$subject</span><span class="src-sym">, </span><span class="src-var">$message</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a178"></a>    <span class="src-sym">}    </span></li>
+<li><a name="a179"></a>&nbsp;</li>
+<li><a name="a180"></a>    <span class="src-doc">/**</span></li>
+<li><a name="a181"></a><span class="src-doc">    * Mailman::noticePrivateMailer()</span></li>
+<li><a name="a182"></a><span class="src-doc">    * </span></li>
+<li><a name="a183"></a><span class="src-doc">    * Sends an email to the user associates with this bid.</span></li>
+<li><a name="a184"></a><span class="src-doc">    * </span></li>
+<li><a name="a185"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">object </span><span class="src-doc-var">$bid </span><span class="src-doc">the bidding object passed in</span></li>
+<li><a name="a186"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">object </span><span class="src-doc-var">$theSubject </span><span class="src-doc">subject of the email to send</span></li>
+<li><a name="a187"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@param </span><span class="src-doc-type">object </span><span class="src-doc-var">$theMessage </span><span class="src-doc">contents of the message to send</span></li>
+<li><a name="a188"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@return </span><span class="src-doc-type">boolean </span><span class="src-doc">TRUE if success, string error message if not</span></li>
+<li><a name="a189"></a><span class="src-doc">    * </span><span class="src-doc-coretag">@access</span><span class="src-doc"> private</span></li>
+<li><a name="a190"></a><span class="src-doc">    */</span></li>
+<li><a name="a191"></a>    <span class="src-key">function </span><span class="src-id">noticePrivateMailer</span><span class="src-sym">(</span><span class="src-var">$bid</span><span class="src-sym">, </span><span class="src-var">$the_subject</span><span class="src-sym">, </span><span class="src-var">$the_message</span><span class="src-sym">)</span><span class="src-sym">{ </span></li>
+<li><a name="a192"></a>        <span class="src-comm">// get $userID from $bid object</span></li>
+<li><a name="a193"></a>        <span class="src-var">$notice_userID </span>= <span class="src-var">$bid</span><span class="src-sym">-&gt;</span><span class="src-id">userID</span><span class="src-sym">;</span></li>
+<li><a name="a194"></a>        <span class="src-var">$notice_itemID </span>= <span class="src-var">$bid</span><span class="src-sym">-&gt;</span><span class="src-id">itemID</span><span class="src-sym">; </span></li>
+<li><a name="a195"></a>        <span class="src-comm">// MySQL to get email address</span></li>
+<li><a name="a196"></a>        <span class="src-var">$myDB </span>= <span class="src-sym">&amp; </span><span class="src-id">ADONewConnection</span><span class="src-sym">(</span><span class="src-id">DSN</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a197"></a>        <span class="src-var">$query </span>= <span class="src-str">&quot;</span><span class="src-str"><span class="src-id">SELECT</span> <span class="src-id">email</span>, <span class="src-id">fullname</span> <span class="src-id">FROM</span> <span class="src-id">auction_users</span> <span class="src-id">WHERE</span> <span class="src-id">ID</span> = <span class="src-var">$notice_userID</span></span><span class="src-str">&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a198"></a>        <span class="src-var">$rs </span>= <span class="src-var">$myDB</span><span class="src-sym">-&gt;</span><span class="src-id">Execute</span><span class="src-sym">(</span><span class="src-var">$query</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a199"></a>&nbsp;</li>
+<li><a name="a200"></a>        <span class="src-key">if </span><span class="src-sym">(</span><span class="src-sym">!</span><span class="src-var">$rs</span><span class="src-sym">)</span><span class="src-sym">{</span></li>
+<li><a name="a201"></a>            <span class="src-key">return </span><span class="src-id">AUCTION_USER_UNKNOWN</span><span class="src-sym">;</span></li>
+<li><a name="a202"></a>        <span class="src-sym">}</span><span class="src-key">elseif</span><span class="src-sym">(</span><span class="src-var">$rs</span><span class="src-sym">-&gt;</span><span class="src-id">RecordCount</span><span class="src-sym">(</span><span class="src-sym">) </span>== <span class="src-num">1</span><span class="src-sym">)</span><span class="src-sym">{</span></li>
+<li><a name="a203"></a>            <span class="src-var">$notice_email </span>= <span class="src-var">$rs</span><span class="src-sym">-&gt;</span><span class="src-id">fields</span><span class="src-sym">[</span><span class="src-num">0</span><span class="src-sym">]</span><span class="src-sym">;</span></li>
+<li><a name="a204"></a>            <span class="src-var">$notice_fullname </span>= <span class="src-var">$rs</span><span class="src-sym">-&gt;</span><span class="src-id">fields</span><span class="src-sym">[</span><span class="src-num">1</span><span class="src-sym">]</span><span class="src-sym">;</span></li>
+<li><a name="a205"></a>        <span class="src-sym">}</span></li>
+<li><a name="a206"></a>        <span class="src-var">$rs</span><span class="src-sym">-&gt;</span><span class="src-id">Close</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">// optional</span></li>
+<li><a name="a207"></a>        <span class="src-var">$item_query </span>= <span class="src-str">&quot;</span><span class="src-str"><span class="src-id">SELECT</span> <span class="src-id">name</span> <span class="src-id">FROM</span> <span class="src-id">auction_items</span> <span class="src-id">WHERE</span> <span class="src-id">ID</span> = <span class="src-var">$notice_itemID</span></span><span class="src-str">&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a208"></a>        <span class="src-var">$itemRS </span>= <span class="src-var">$myDB</span><span class="src-sym">-&gt;</span><span class="src-id">Execute</span><span class="src-sym">(</span><span class="src-var">$item_query</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a209"></a>&nbsp;</li>
+<li><a name="a210"></a>        <span class="src-key">if </span><span class="src-sym">(</span><span class="src-sym">!</span><span class="src-var">$itemRS</span><span class="src-sym">)</span><span class="src-sym">{</span></li>
+<li><a name="a211"></a>            <span class="src-key">return </span><span class="src-id">AUCTION_ITEM_UNKNOWN</span><span class="src-sym">;</span></li>
+<li><a name="a212"></a>        <span class="src-sym">}</span><span class="src-key">elseif</span><span class="src-sym">(</span><span class="src-var">$itemRS</span><span class="src-sym">-&gt;</span><span class="src-id">RecordCount</span><span class="src-sym">(</span><span class="src-sym">) </span>== <span class="src-num">1</span><span class="src-sym">)</span><span class="src-sym">{</span></li>
+<li><a name="a213"></a>            <span class="src-var">$notice_item_name </span>= <span class="src-var">$itemRS</span><span class="src-sym">-&gt;</span><span class="src-id">fields</span><span class="src-sym">[</span><span class="src-num">0</span><span class="src-sym">]</span><span class="src-sym">;</span></li>
+<li><a name="a214"></a>        <span class="src-sym">}</span></li>
+<li><a name="a215"></a>        </li>
+<li><a name="a216"></a>        <span class="src-var">$itemRS</span><span class="src-sym">-&gt;</span><span class="src-id">Close</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">; </span><span class="src-comm">// optional </span></li>
+<li><a name="a217"></a>        <span class="src-comm">// From http://www.php.net/manual/en/function.mail.php</span></li>
+<li><a name="a218"></a>        <span class="src-comm">// Email user to tell them that they their bid has been registered.</span></li>
+<li><a name="a219"></a>        <span class="src-comm">// recipients</span></li>
+<li><a name="a220"></a>        <span class="src-var">$to </span>= <span class="src-var">$notice_email</span><span class="src-sym">; </span></li>
+<li><a name="a221"></a>        <span class="src-comm">// Fill variables retrieved from SQL query into email template defined in the called method</span></li>
+<li><a name="a222"></a>        <span class="src-var">$the_subject </span>= <a href="http://www.php.net/preg_replace">preg_replace</a><span class="src-sym">(</span><span class="src-str">&quot;/\[(\S+)\]/e&quot;</span><span class="src-sym">, </span><span class="src-str">&quot;\$\\1&quot;</span><span class="src-sym">, </span><span class="src-var">$the_subject</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a223"></a>        <span class="src-var">$the_message </span>= <a href="http://www.php.net/preg_replace">preg_replace</a><span class="src-sym">(</span><span class="src-str">&quot;/\[(\S+)\]/e&quot;</span><span class="src-sym">, </span><span class="src-str">&quot;\$\\1&quot;</span><span class="src-sym">, </span><span class="src-var">$the_message</span><span class="src-sym">)</span><span class="src-sym">; </span></li>
+<li><a name="a224"></a>        <span class="src-comm">// To send HTML mail, the Content-type header can be set to &quot;Content-type: text/html; charset=iso-8859-1\n&quot;</span></li>
+<li><a name="a225"></a>        <span class="src-var">$headers </span>= <span class="src-str">&quot;MIME-Version: 1.0\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a226"></a>        <span class="src-var">$headers </span>.= <span class="src-str">&quot;Content-type: text/plain; charset=iso-8859-1\n&quot;</span><span class="src-sym">; </span></li>
+<li><a name="a227"></a>        <span class="src-comm">// Additional headers</span></li>
+<li><a name="a228"></a>        <span class="src-var">$headers </span>.= <span class="src-str">&quot;From: OpUSA Auctions &lt;auction@opusa.org&gt;\n&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a229"></a>        <span class="src-var">$headers </span>.= <span class="src-str">&quot;</span><span class="src-str"><span class="src-id">To</span>: <span class="src-var">$notice_fullname</span> &lt;<span class="src-var">$notice_email</span>&gt;\n</span><span class="src-str">&quot;</span><span class="src-sym">; </span></li>
+<li><a name="a230"></a>        <span class="src-comm">// and now mail it</span></li>
+<li><a name="a231"></a>        <span class="src-comm">// Edited by Nick: report error message if mail is unsuccessful</span></li>
+<li><a name="a232"></a>        <span class="src-comm">// We don't have any output to browser from within classes or php files: all from templates</span></li>
+<li><a name="a233"></a>        <span class="src-key">if</span><span class="src-sym">(</span><a href="http://www.php.net/mail">mail</a><span class="src-sym">(</span><span class="src-var">$to</span><span class="src-sym">, </span><span class="src-var">$the_subject</span><span class="src-sym">, </span><span class="src-var">$the_message</span><span class="src-sym">, </span><span class="src-var">$headers</span><span class="src-sym">))</span><span class="src-sym">{</span></li>
+<li><a name="a234"></a>            <span class="src-key">return </span><span class="src-id">true</span><span class="src-sym">;</span></li>
+<li><a name="a235"></a>        <span class="src-sym">}</span><span class="src-key">else</span><span class="src-sym">{</span></li>
+<li><a name="a236"></a>            <span class="src-key">return </span><span class="src-id">AUCTION_EMAIL_FAILURE </span>. <span class="src-var">$notice_fullname </span>. <span class="src-var">$notice_email</span><span class="src-sym">;</span></li>
+<li><a name="a237"></a>        <span class="src-sym">}</span></li>
+<li><a name="a238"></a>    <span class="src-sym">}</span></li>
+<li><a name="a239"></a><span class="src-sym">}</span></li>
+<li><a name="a240"></a>&nbsp;</li>
+<li><a name="a241"></a><span class="src-php">?&gt;</span></li>
+</ol></pre>
+</div>
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 17 Feb 2005 14:20:41 +0800 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</p>
+	</body>
+</html>

@@ -1,0 +1,930 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class Validate</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.png";
+				imgMinus.src = "../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name"><img src="../media/images/Class_logo.png"
+														alt=" Class"
+														title=" Class"
+														style="vertical-align: middle"> Validate</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validate</p>
+<p class="description"><p>Tools for validating user input</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">version:</span> $Id: Validate.html,v 1.1.1.1 2005/03/01 23:58:56 nicolasconnault Exp $</li>
+				<li><span class="field">copyright:</span> Copyright (c) 2005</li>
+				<li><span class="field">author:</span> Nicolas Connault, Christopher Vance</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_class_validate_php.html">/class_validate.php</a> (line <span class="field"><a href="..//__filesource/fsource_auction__class_validate.php.html#a46">46</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">_constant_pattern</span>
+					<a href="#$_constant_pattern" title="details" class="var-name">$_constant_pattern</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$_email_pattern" title="details" class="var-name">$_email_pattern</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$_max_height" title="details" class="var-name">$_max_height</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$_max_width" title="details" class="var-name">$_max_width</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$_password_pattern" title="details" class="var-name">$_password_pattern</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$_phone_pattern" title="details" class="var-name">$_phone_pattern</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$_price_pattern" title="details" class="var-name">$_price_pattern</a>
+				</div>
+								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$_zip_pattern" title="details" class="var-name">$_zip_pattern</a>
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+								
+				<div class="method-definition">
+					<img src="../media/images/Constructor.png" alt=" "/>
+											<span class="method-result">Validate</span>
+										<a href="#Validate" title="details" class="method-name">Validate</a>
+										()
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#checkForm" title="details" class="method-name">checkForm</a>
+											(<span class="var-type">$fields</span>&nbsp;<span class="var-name">$fields</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">true</span>
+										<a href="#checkImageDimensions" title="details" class="method-name">checkImageDimensions</a>
+											(<span class="var-type">$file</span>&nbsp;<span class="var-name">$file</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">TRUE</span>
+										<a href="#checkImageFile" title="details" class="method-name">checkImageFile</a>
+											(<span class="var-type">$file</span>&nbsp;<span class="var-name">$file</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#checkUser" title="details" class="method-name">checkUser</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$alias</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$password</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">"user"</span>])
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#_checkConstant" title="details" class="method-name">_checkConstant</a>
+											(<span class="var-type">$constant</span>&nbsp;<span class="var-name">$constant</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#_checkDescription" title="details" class="method-name">_checkDescription</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$description</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#_checkEmail" title="details" class="method-name">_checkEmail</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$email</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#_checkIncrement" title="details" class="method-name">_checkIncrement</a>
+											(<span class="var-type">$increment</span>&nbsp;<span class="var-name">$increment</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#_checkPassword" title="details" class="method-name">_checkPassword</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$password</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#_checkPhone" title="details" class="method-name">_checkPhone</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$phone</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#_checkReserve" title="details" class="method-name">_checkReserve</a>
+											(<span class="var-type">$reserve</span>&nbsp;<span class="var-name">$reserve</span>, <span class="var-type">$startingprice</span>&nbsp;<span class="var-name">$startprice</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#_checkStartprice" title="details" class="method-name">_checkStartprice</a>
+											(<span class="var-type">$startingprice</span>&nbsp;<span class="var-name">$startprice</span>)
+									</div>
+								
+				<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#_checkZip" title="details" class="method-name">_checkZip</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$zip</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+									</div>
+							</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$_constant_pattern" id="$_constant_pattern"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">_constant_pattern</span>
+			<span class="var-name">$_constant_pattern</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a78">78</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> Constant message name pattern</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_email_pattern" id="$_email_pattern"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$_email_pattern</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a50">50</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> _emailpattern Regular Expression matching a correctly formatted email address</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_max_height" id="$_max_height"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$_max_height</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a70">70</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> _max_height Maximum image height</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_max_width" id="$_max_width"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$_max_width</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a74">74</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> _max_width Maximum image width</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_password_pattern" id="$_password_pattern"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$_password_pattern</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a62">62</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> _passwordpattern Regular Expression matching a correctly formatted password</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_phone_pattern" id="$_phone_pattern"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$_phone_pattern</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a54">54</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> _phonepattern Regular Expression matching a correctly formatted phone number</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_price_pattern" id="$_price_pattern"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$_price_pattern</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a66">66</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> _pricepattern Regular Expression matching a correctly formatted price</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_zip_pattern" id="$_zip_pattern"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$_zip_pattern</span>
+						(line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a58">58</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> _zippattern Regular Expression matching a correctly formatted zip number</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodValidate" id="Validate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Constructor.png" />
+		<span class="method-title">Constructor Validate</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a84">84</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validate::Validate()</p>
+<p class="description"><p>Constructor Function</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">Validate</span>
+		<span class="method-name">
+			Validate
+		</span>
+				()
+			</div>
+	
+		
+		
+	</div>
+<a name="methodcheckForm" id="checkForm"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">checkForm</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a255">255</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validate::checkForm($fields)</p>
+<p class="description"><p>Check an entire form data for errors in entry</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> TRUE if successful, array with error message and error field if error occurs</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			checkForm
+		</span>
+					(<span class="var-type">$fields</span>&nbsp;<span class="var-name">$fields</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$fields</span>
+				<span class="var-name">$fields</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcheckImageDimensions" id="checkImageDimensions"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">checkImageDimensions</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a376">376</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validate::checkImageDimensions()</p>
+<p class="description"><p>This method will resize an image if it exceeds the predetermined maximum height and/or width</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> if image is in correct dimensions, error message if not</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">true</span>
+		<span class="method-name">
+			checkImageDimensions
+		</span>
+					(<span class="var-type">$file</span>&nbsp;<span class="var-name">$file</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$file</span>
+				<span class="var-name">$file</span><span class="var-description">: A string pointing to the image file</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcheckImageFile" id="checkImageFile"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">checkImageFile</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a346">346</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validate::checkImageFile($file)</p>
+<p class="description"><p>Checks that the file is of the correct size and is not duplicated</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> if OK, error message otherwise</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">TRUE</span>
+		<span class="method-name">
+			checkImageFile
+		</span>
+					(<span class="var-type">$file</span>&nbsp;<span class="var-name">$file</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$file</span>
+				<span class="var-name">$file</span><span class="var-description">: Image file</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="methodcheckUser" id="checkUser"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">checkUser</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a299">299</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validate::checkUser($alias, $password)</p>
+<p class="description"><p>Using the given alias and password, retrieves a user from the database. This object's attributes will be updated</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> &quot;fields&quot; if user was successfully retrieved, string error message if an error occurred.</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			checkUser
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$alias</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$password</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">"user"</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$alias</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$password</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="method_checkConstant" id="_checkConstant"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_checkConstant</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a218">218</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validate::_checkConstant($constant)</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> TRUE if successful, array with error message and error field if error occurs</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_checkConstant
+		</span>
+					(<span class="var-type">$constant</span>&nbsp;<span class="var-name">$constant</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$constant</span>
+				<span class="var-name">$constant</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="method_checkDescription" id="_checkDescription"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_checkDescription</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a164">164</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validate::_checkDescription($description)</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> TRUE if successful, array with error message and error field if error occurs</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_checkDescription
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$description</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$string</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="method_checkEmail" id="_checkEmail"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_checkEmail</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a104">104</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validate::_checkEmail($email)</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> TRUE if successful, array with error message and error field if error occurs</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_checkEmail
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$email</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$string</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="method_checkIncrement" id="_checkIncrement"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_checkIncrement</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a199">199</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validate::_checkIncrement($increment)</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> TRUE if successful, array with error message and error field if error occurs</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_checkIncrement
+		</span>
+					(<span class="var-type">$increment</span>&nbsp;<span class="var-name">$increment</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$increment</span>
+				<span class="var-name">$increment</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="method_checkPassword" id="_checkPassword"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_checkPassword</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a119">119</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validate::_checkPassword($password)</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> TRUE if successful, array with error message and error field if error occurs</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_checkPassword
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$password</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$string</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="method_checkPhone" id="_checkPhone"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_checkPhone</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a134">134</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validate::_checkPhone($phone)</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> TRUE if successful, array with error message and error field if error occurs</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_checkPhone
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$phone</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$string</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="method_checkReserve" id="_checkReserve"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_checkReserve</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a234">234</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validate::_checkReserve($reserve, $startprice)</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> TRUE if successful, array with error message and error field if error occurs</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_checkReserve
+		</span>
+					(<span class="var-type">$reserve</span>&nbsp;<span class="var-name">$reserve</span>, <span class="var-type">$startingprice</span>&nbsp;<span class="var-name">$startprice</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$reserve</span>
+				<span class="var-name">$reserve</span>			</li>
+					<li>
+				<span class="var-type">$startingprice</span>
+				<span class="var-name">$startprice</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="method_checkStartprice" id="_checkStartprice"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_checkStartprice</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a180">180</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validate::_checkStartingprice($startprice)</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> TRUE if successful, array with error message and error field if error occurs</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_checkStartprice
+		</span>
+					(<span class="var-type">$startingprice</span>&nbsp;<span class="var-name">$startprice</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$startingprice</span>
+				<span class="var-name">$startprice</span>			</li>
+				</ul>
+		
+		
+	</div>
+<a name="method_checkZip" id="_checkZip"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">_checkZip</span> (line <span class="line-number"><a href="..//__filesource/fsource_auction__class_validate.php.html#a149">149</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validate::_checkZip($zip)</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> TRUE if successful, array with error message and error field if error occurs</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_checkZip
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$zip</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$string</span>			</li>
+				</ul>
+		
+		
+	</div>
+						
+		</div>
+	</div>
+
+	
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 17 Feb 2005 14:20:42 +0800 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</p>
+	</div></body>
+</html>

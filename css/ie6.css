@@ -1,0 +1,23 @@
+
+#orange_box {
+	background-color: #ff7f00;
+	left: 0px;
+}
+
+#orange_bevel_sm, #orange_top, #orange_bottom{
+	display: none !important;
+}
+
+#inner_content_white, #inner_content_blue {
+	background-image: none;
+}
+
+h2 {
+	color: black;
+}
+
+#ob_open, #ob_close {
+	display: none !important;
+}
+
+img, div, a, input { behavior: url(/css/iepngfix.htc) }

@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs for page ErrorHandler.inc</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.png";
+				imgMinus.src = "../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="file-name"><img src="../media/images/Page_logo.png" alt="File" style="vertical-align: middle">/ErrorHandler.inc</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+											<a href="#sec-constants">Constants</a>
+			|									<a href="#sec-functions">Functions</a>
+			</div>
+	<div class="info-box-body">	
+		<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">filesource:</span> <a href="..//__filesource/fsource_default__ErrorHandler.inc.html">Source Code for this file</a></li>
+			</ul>
+		
+			</div>
+</div>
+		
+
+	
+	<a name="sec-constants"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+									<span class="disabled">Constants</span>
+			|										<a href="#sec-functions">Functions</a>
+					</div>
+		<div class="info-box-body">	
+			<a name="defineERRORHANDLER_CONSOLE"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">ERRORHANDLER_CONSOLE</span> = '<br />&lt;script type=&quot;text/javascript&quot; language=&quot;JavaScript&quot;&gt;&lt;!--<br />ErrorHandler = window.open(&quot;&quot;, &quot;ErrorHandlerConsole&quot;,&quot;resizable=yes,scrollbars=yes,directories=no,location=no,menubar=no,status=no,toolbar=no&quot;);<br />ErrorHandler.document.open();<br />ErrorHandler.document.writeln(&quot;&lt;html&gt;&lt;head&gt;&lt;title&gt;ErrorHandler Console: %s&lt;\\/title&gt;&lt;\\/head&gt;&lt;body&gt;&quot;);<br />%s<br />ErrorHandler.document.writeln(&quot;&lt;\\/body&gt;&lt;\\/html&gt;&quot;);<br />ErrorHandler.document.close();<br />//--&gt;&lt;/script&gt;<br />'
+			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a40">40</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineERRORHANDLER_DATE_FORMAT"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">ERRORHANDLER_DATE_FORMAT</span> = '[Y-m-d H:i:s]'
+			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a56">56</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineERRORHANDLER_INI"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">ERRORHANDLER_INI</span> = dirname(__FILE__).'/ErrorHandler.ini'
+			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a51">51</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineERRORHANDLER_LOG_TARGET"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">ERRORHANDLER_LOG_TARGET</span> = 'ErrorHandler.log'
+			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a54">54</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineERRORHANDLER_LOG_TYPE"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">ERRORHANDLER_LOG_TYPE</span> = FILE_LOG
+			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a53">53</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineERRORHANDLER_REPLACE_CLIENT"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">ERRORHANDLER_REPLACE_CLIENT</span> = '<br />&lt;script type=&quot;text/javascript&quot; language=&quot;JavaScript&quot;&gt;&lt;!--<br />setTimeout(&quot;window.location.href = \'%1$s\'&quot;, 3000);<br />//--&gt;&lt;/script&gt;<br />:::ERROR!::: You will be redirected automatically in 3 seconds,<br />otherwise &lt;a href=&quot;%1$s&quot;&gt;click here&lt;/a&gt;.<br />'
+			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a49">49</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineE_DEBUG"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">E_DEBUG</span> = 0x10000000
+			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a37">37</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineE_ERROR_ALL"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">E_ERROR_ALL</span> = E_ERROR|E_PARSE|E_CORE_ERROR|E_COMPILE_ERROR|E_USER_ERROR
+			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a35">35</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineE_NOTICE_ALL"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">E_NOTICE_ALL</span> = E_NOTICE|E_USER_NOTICE
+			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a33">33</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineE_NOTICE_NONE"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">E_NOTICE_NONE</span> = E_ALL&amp;~E_NOTICE_ALL
+			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a36">36</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineE_USER_ALL"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">E_USER_ALL</span> = E_USER_NOTICE|E_USER_WARNING|E_USER_ERROR
+			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a32">32</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineE_VERY_ALL"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">E_VERY_ALL</span> = E_ERROR_ALL|E_WARNING_ALL|E_NOTICE_ALL|E_DEBUG
+			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a38">38</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineE_WARNING_ALL"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">E_WARNING_ALL</span> = E_WARNING|E_USER_WARNING|E_CORE_WARNING|E_COMPILE_WARNING
+			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a34">34</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineFILE_LOG"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">FILE_LOG</span> = 3
+			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a30">30</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineMAIL_LOG"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">MAIL_LOG</span> = 1
+			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a29">29</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineOLD_ERROR_HANDLER"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">OLD_ERROR_HANDLER</span> = set_error_handler('Lookup_ErrorHandler')
+			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a797">797</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineSYSTEM_LOG"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">SYSTEM_LOG</span> = 
+			(line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a28">28</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+		</div>
+	</div>
+	
+	
+	<a name="sec-functions"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Functions</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+													<a href="#sec-constants">Constants</a>
+				|									<span class="disabled">Functions</span>
+		</div>
+		<div class="info-box-body">	
+			<a name="functionLookup_ErrorHandler" id="functionLookup_ErrorHandler"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../media/images/Function.png" />
+		<span class="method-title">Lookup_ErrorHandler</span> (line <span class="line-number"><a href="..//__filesource/fsource_default__ErrorHandler.inc.html#a759">759</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			Lookup_ErrorHandler
+		</span>
+				()
+			</div>
+
+		
+	
+</div>
+		</div>
+	</div>
+	
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 17 Feb 2005 14:20:43 +0800 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</p>
+	</div></body>
+</html>

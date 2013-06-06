@@ -1,0 +1,184 @@
+[28-07-2005]
+* Extensive changes across the entire auction framework to ensure that variables were valid
+   before being acted on or being used to set Smarty variables.
+
+[27-07-2005]
+* Updated Item::updateItem() to only update the fields which were passed in.  Previously, the
+   name, category, auction length, and description were all updated.  If the corresponding
+   variable was not passed in, the update would set the field to be blank.  The updated code
+   addresses this problem.
+* Corrected errors which appeared with the beta-2 release.  After seeing these errors on the
+   development version of the site, the beta-2 code was removed for download pending a fix.
+* Fixed errors identified with beta-2 code.
+
+[01-07-2005]
+* Implement a "Change listing" button.  admin_edititem.php.  Completed sometime before July 2005.
+
+[23-06-2005]
+* Admin page for organisation details (these are stored in DB and used for payment processing)
+
+[20-06-2005]
+* Implement all settings from admin_auction.php
+
+[15-06-2005] (date of last changes)
+* Users page: Optionally displays a seller/buyer's info
+* Implement user's page with e-mailing functionality : sellers looking at bidder's
+   info and vice-versa
+* Implement admin panel (CRUD : Create, Read, Update, Delete)
+	Proposed structure: 5 main panels
+		1. Auction : Main panel where all auction options are configured
+		2. Items: edit items that are on for auction
+		3. Users: communicate with users (and take action like ban)
+		4. Bids: Review / edit bids, send emails
+		5. Messages: View and edit messages
+	More panels may be added later with new functionality
+* Implement reserve price functionality
+* Implement admin panel (create/delete auctions/items/users/bids)
+
+[18-02-2005]
+* Auction settings: provide more information display control: checkboxes with
+	seller/bidder/item details (more specific)
+
+[17-02-2005]
+* Added validating methods to validate class
+
+* Very significantly modified the auction class: 
+	- No more auction_auctions table in DB
+	- Items are no longer linked to the auction Item/table
+	- Only one auction is run at a time, without creating or deleting functionality
+	- Auction's member variables are all pulled out of admin_config table
+
+* Entered many new messages in the auction_messages table
+
+* Created pages for admin panel:
+	- admin_auction.php
+	- admin_bids.php
+	- admin_index.php
+	- admin_items.php
+	- admin_login.php
+	- admin_messages.php
+	- admin_users.php
+	
+* And their corresponding tpl pages:
+	- admin_auction.tpl
+	- admin_bids.tpl
+	- admin_index.tpl
+	- admin_items.tpl
+	- admin_login.tpl
+	- admin_messages.tpl
+	- admin_users.tpl
+
+* Completed login, messages and template for auction pages
+* admin_auction.tpl is the first page to be entirely I18N ready: all text
+	is entered using message constants
+* admin_messages.php is a very fast and efficient way to add, edit and delete
+	constant messages.
+	
+(x) Implement admin section for editing and adding message constants
+	[16-02-2005] Adding completed
+	[17-02-2005] Editing: Completed	
+
+(x) Implement a side-menu with categories
+	[11-02-2005]
+	
+(x) Implement a "log out" method
+	[16-02-2005]
+	
+(x) When user navigates to items.php, to an item which no longer exists in the database, show a message
+	saying this item doesn't exist, instead of showing a blank page.
+	[11-02-2005]
+	
+(x) Add error handling for all SQL queries (check for empty recordset)
+	[10-02-2005]
+	
+(x) Implement search engine
+	[11-02-2005] -- incomplete: yet to be fully included in site
+	
+(x) In editaccount.php, when an item has expired, move it to either "items won", "items lost" or "items sold" 
+	or "items not sold";
+	[12-02-2005]
+	
+(x) Remove items that are processed (expired) from the search and listings
+	[08-02-2005]
+	
+(x) In all forms: when a field was left empty, highlight it along with the message "All fields are required"
+	[08-02-2005]
+	
+(x) Finish core functionality:
+	x Item submitting
+	x Highlight own bid if winning bid DONE
+	x Mailing class
+	x Leave item up after finished, for a given time, but don't allow new bids
+	x Process bid wins and losses
+	c Show bid history in auction_item.tpl and auction_editaccount.tpl
+	c Improve the redirection procedures during login and registration: no 1-line pages!
+	[14-02-2005] : "c" means cancelled, but could be looked at later
+	
+(x) When user tries to submit a bid but is not logged in:
+	- Either disable the Place a Bid button and write: Login or Register on the button instead
+	- Or send to the login page with a "source" variable, that can send the user back when he is logged in
+	[02-02-2005]
+	
+(x) In headers, display "You are logged in as ..." on all pages, or "You are a guest. Login here".
+	[02-02-2005] And fully included in design [16-02-2005]
+	
+(x) For item submission validation: add a check for duplicate image filename, 
+	and append a number if duplicate exists.
+	[04-02-2005]
+	
+(x) Prepare framework for multi-language support: all messages to messages.php as Constants
+	[02-02-2005] Now all messages in database with constant and message as strings with
+		special characters converted to html entities
+	
+[31-01-2005]
+The following terms are defined:
+
+Seller: The provider of the item for auction
+Host: The organisation/person hosting and running the auction. May be the sole recipient of proceeds.
+Bidder: The person bidding (not necessarily purchasing) the item
+
+In an effort to make this framework customisable and adaptable, it is proposed that the following
+configuration options be implemented. 
+
+	- Bid amount:
+		o Bid amount is restricted by the item's increment value, which value is:
+			() The same for all items across the whole auction
+			() Chosen by the seller
+			() Varies in proportion to the starting price of the item
+		o Bid amount is chosen by the bidder
+	
+	- Bidder's access to seller information:
+		o The bidder has full access to the seller's contact details
+		o The bidder has limited access to the seller's details
+		o The bidder has no access to the seller's details because
+			the entity or organisation hosting the auction is the sole "seller" of the items
+	
+	- Bidder's access to item information:
+		o The bidder can see all the information that is available about a given item
+		o The bidder cannot see: (multiple flags allowed)
+			() The starting price of the item
+			() The number of bids
+			() The reserve value
+			() The current price
+			() The increment value
+			() The end date of the item (not recommended)
+			
+	- Seller's access to information about bids on his/her items:
+		o The seller can access all information about the bids
+		o The seller cannot see: (multiple flags allowed)
+			() The details of the bidder
+			() The number of bids on the item
+			() The winner of the item
+	
+	- Type of auction:
+		o Transactions occur between sellers and bidders, the host is only a provider of the auction service
+		o The items are "donated" by "sellers", the proceeds go straight to the Host
+		o Other options?
+	
+	- Show item winner or not?
+	- Length of time for which expired items are held in database before being deleted
+		
+
+
+
+

@@ -1,0 +1,1 @@
+<?if(!isset($_GET['mattconfirm'])) die();include '../include.php';$email = array('ID' => 640, 'fullname'=>'asldkjf', 'email' => 'bob@bob.com');include $_GET['test'].'.tpl.php';?>

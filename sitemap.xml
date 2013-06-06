@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://www.mymotoreach.com/</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.mymotoreach.com/index.php</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.mymotoreach.com/sell_vehicle.php</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.mymotoreach.com/about.php</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.mymotoreach.com/contact.php</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.mymotoreach.com/register.php</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.mymotoreach.com/terms_and_conditions.php</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://www.mymotoreach.com/privacy_disclaimer.php</loc>
+  <changefreq>daily</changefreq>
+</url>
+</urlset>

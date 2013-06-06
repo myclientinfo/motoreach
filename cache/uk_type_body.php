@@ -1,0 +1,1 @@
+a:11:{i:9;s:9:"Campervan";i:10;s:10:"Commercial";i:2;s:5:"Coupe";i:4;s:9:"Hatchback";i:8;s:9:"Motorhome";i:11;s:5:"Other";i:1;s:6:"Saloon";i:5;s:13:"Station Wagon";i:6;s:3:"SUV";i:7;s:7:"Utility";i:3;s:3:"Van";}

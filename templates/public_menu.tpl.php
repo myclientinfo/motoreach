@@ -1,0 +1,2 @@
+<?php $s = $_SERVER['PHP_SELF'];?><ul id="menu">	<li class="<?php echo $s == '/index.php' ?  'active' : 'normal' ?>"><a href="/index.php">Home</a></li>	<li id="sell_vehicle" class="<?php echo $s == '/sell_vehicle.php' ?  'active' : 'normal' ?>"><a href="/sell_vehicle.php">Sell Your Vehicle</a></li>	<li class="<?php echo $s == '/about.php' ?  'active' : 'normal' ?>"><a href="/about.php">About Us</a></li>	<li class="<?php echo $s == '/contact.php' ?  'active' : 'normal' ?>"><a href="/contact.php">Contact Us</a></li>
+</ul>
