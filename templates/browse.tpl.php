@@ -2,23 +2,13 @@
 	<script>
 	
 	jQuery(document).ready(function(){
-		$('#select_makes div').click(function(e){
-			
-			var select_box = $(this).attr('id').replace('select_', '');
-			$('#all_makes span').hide();
-			$('#all_makes span.box_'+select_box).show();
-		});
 		
 		$('span.mk').click(function(){
-			$('.list_models[id!=lm_'+$(this).attr('id')+']').hide();
-			$('#lm_'+$(this).attr('id')).toggle();
+			$('div.list_models', $(this).parent('div')).toggle();
 		});
 		
 		$('span.md').click(function(){
-			
-			$('.list_vehicles[id!=lv_'+$(this).attr('id').replace('md_', '')+']').hide();
-			$('#lv_'+$(this).attr('id').replace('md_', '')).toggle();
-			
+			$('div.list_vehicles', $(this).parent('div')).toggle();
 		});
 		
 	});
@@ -80,15 +70,16 @@
 	foreach($content as $k => $mk){
 	?>
 	<div class="list_make">
-		<span class="mk" id="<?php echo strtolower(str_replace(' ', '_', $k)) ?>"><span><?php echo $k ?></span></span>
+		<span class="mk"><span><?php echo $k ?></span></span>
 		<span class="mk_count"><?php echo count($mk) ?></span>
-		<div class="list_models" id="lm_<?php echo strtolower(str_replace(' ', '_',$k)) ?>">
+		<div class="list_models">
 		<?php foreach($mk as $md => $mds){ 
 			$smds = strtolower(str_replace(' ', '_', $md));
 			$smds = str_replace(array('(',')'),'', $smds);
 		?>
-			<span class="md" id="md_<?php echo $smds ?>"><?php echo $md; ?></span> (<?php echo count($mds) ?>)<br />
-			<div class="list_vehicles" id="lv_<?php echo $smds ?>">
+			<div class="model_outer">
+			<span class="md"><?php echo $md; ?></span> (<?php echo count($mds) ?>)<br />
+			<div class="list_vehicles">
 			<?php
 			foreach($mds as $vehicle){
 				echo '<div class="av"><a href="/items.php?itemID='.$vehicle['ID'].'">'.$vehicle['year'].' '.$vehicle['make'].' '.$vehicle['model'].' '.$vehicle['badge'].'</a><br>';
@@ -97,7 +88,7 @@
 			}
 			?>
 			</div>
-			
+			</div>
 		<?php } ?>
 			<img src="/images/browse_model_bg_bottom.png">
 			
