@@ -406,6 +406,7 @@ var validate = function(){
 	
 	});
 	
+	
 	if(failed.length > 0){
 		$.each(failed, function(key, value) { 
 			if($('#'+value).length>0) $('#'+value).css('background-color', '#FF7F00');
