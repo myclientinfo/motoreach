@@ -248,6 +248,22 @@ background-image: url(/images/public_header_background.png);
 	letter-spacing: -2px;
 }
 
+.feature {
+	font-family: 'DejaVuSansBold', sans-serif;
+	font-size: 30px;
+	text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+    line-height: 20px;
+    color: white;
+	text-align: center;
+	letter-spacing: -2px;
+	line-height: 1em;
+}
+
+
 #free_image p {
 	line-height: 0.7em;
 }

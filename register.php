@@ -44,9 +44,15 @@ $message = "";
 
 if(isset($_POST['formdata']) && $_POST['formdata']=='register'){
 
+	if($_POST['test_question'] != 7){
+		header('location: /');
+		die();
+	}
+
 	if(trim($_POST['rep_number'])=='Office use only - leave blank if unknown' || trim($_POST['rep_number'])=='Office use only'){
 		$_POST['rep_number'] = '';
 	}
+
     $user = new User($_POST);
     $validate = new Validate();
     //$_SESSION = $_POST;

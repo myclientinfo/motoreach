@@ -9,8 +9,6 @@ require_once 'classes/class.extend_user.php';
 
 if(isset($_POST['formdata']) && $_POST['formdata'] != 'miniform'){
 	
-	
-	
 	$user = new Extend_User(false, false, true, 'auction_users');
 	$_POST['signup_time'] = date('Y-m-d H:i:s');
 	$_POST['statusID'] = 6;

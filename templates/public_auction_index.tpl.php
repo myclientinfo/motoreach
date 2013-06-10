@@ -108,19 +108,19 @@ $(window).load(function(){
 		<img id="free_image_2" src="/images/free_image_2_<?php echo strtolower($_SESSION['l10n']['country_code']) ?>.jpg" />-->
 		
 		
-		<p style="font-size: 52px">DEALERS</p>
-		<p style="font-size: 47px">ALL OVER</p>
-		<!--<p>TRY IT NOW</p>-->
+		<!--<p style="font-size: 52px">DEALERS</p>
+		<p style="font-size: 47px">ALL OVER</p>-->
+		<p>TRY IT NOW</p>
 		<div id="free_image_2">
 		<?php if($_SESSION['l10n']['country_code']=='AU'){ ?>
 			<p style="font-size: 90px;">100%</p>
 			<p style="font-size: 90px;">FREE</p>
 		<?php } else {?>
-			<!--<p style="font-size: 85px;">IRELAND ARE WAITING</p>
-			<p style="font-size: 67px;">FOR YOUR CAR</p>-->
-			<p style="font-size: 22px;">IRELAND ARE</p>
+			<p style="font-size: 85px;">ONLY</p>
+			<p style="font-size: 67px;">&euro;19.95</p>
+			<!--<p style="font-size: 22px;">IRELAND ARE</p>
 			<p style="font-size: 53px;">WAITING</p>
-			<p style="font-size: 33px;">FOR YOUR CAR</p>
+			<p style="font-size: 33px;">FOR YOUR CAR</p>-->
 		<?php } ?>
 		</div>
 		
@@ -142,7 +142,7 @@ $(window).load(function(){
 		<li><span>Easy. Quick. Cash.</span></li>
 	</ol>
 	
-	
+	<p class="feature">DEALERS ALL OVER IRELAND ARE WAITING FOR YOUR CAR.</p>
 
   </div>
 	<div id="lower_box" style="display: none;">

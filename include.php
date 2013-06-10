@@ -29,8 +29,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
  
- die('test');
-
  if($_SERVER['HTTP_HOST']=='motoreach'||$_SERVER['HTTP_HOST']=='motopublic'||isset($_GET['warnings'])){
 	error_reporting(E_ALL);
 } else {
