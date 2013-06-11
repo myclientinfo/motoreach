@@ -249,7 +249,9 @@ jQuery(document).ready(function(){
 			echo Site::drawDiv('submit_item_opt_left');
 			echo Site::drawSelect('import', array('No', 'Yes'),'', '', 'personal import', $cf).BR;
 			echo Site::drawSelect('colour_id', Site::getLookupTable('type_colours', 'id', 'colour', 'colour'), @$_POST['colour_id'], ($ut==4?'':2), 'colour', 'select colour', array('class'=>'sel_var')).BR;
-			echo Site::drawSelect('interior_type_id', Site::getLookupTable('type_interiors', 'id', 'interior', 'interior', true), @$_POST['interior_type_id'], ($ut==4?'':3), 'interior', 'select interior', array('class'=>'sel_var')).BR;
+			
+			echo Site::drawSelect('interior_type_id', Site::getLookupTable('type_interiors', 'id', 'interior', 'interior'), @$_POST['interior_type_id'], ($ut==4?'':3), 'interior', 'select interior', array('class'=>'sel_var')).BR;
+			
 			echo Site::drawSelect('interior_colour_id', Site::getLookupTable('type_colours', 'id', 'colour', 'colour', ''), @$_POST['interior_colour_id'], ($ut==4?'':8), 'interior colour', 'select interior colour', array('class'=>'sel_var')).BR2;
 			
 			echo Site::drawSelect('fuel_type_id', Site::getLookupTable('type_fuel', 'id', 'fuel', 'fuel'), @$_POST['type_fuel'], ($ut==4?'':1), 'fuel type', 'select fuel type').BR;
