@@ -1,1 +1,1 @@
-a:9:{i:1;s:5:"Sedan";i:2;s:5:"Coupe";i:3;s:3:"Van";i:4;s:9:"Hatchback";i:5;s:13:"Station Wagon";i:6;s:3:"SUV";i:7;s:7:"Utility";i:8;s:9:"Motorhome";i:9;s:9:"Campervan";}
+a:8:{i:9;s:9:"Campervan";i:2;s:5:"Coupe";i:5;s:6:"Estate";i:4;s:9:"Hatchback";i:7;s:3:"MPV";i:1;s:6:"Saloon";i:6;s:3:"SUV";i:3;s:3:"Van";}

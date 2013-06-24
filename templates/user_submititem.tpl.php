@@ -5,9 +5,12 @@ $ut = User::getSD('user_type_id');
 <?php if($_SESSION['l10n']['country_code']!='IE'){ ?>
 var validate_array = ['year', 'comp_month', 'comp_year', 'mileage', 'colour_id', 'interior_colour_id', 'interior_type_id', 'model_id', 'registration', 'import', 'fuel_type_id', 'transmission_type_id', 'drive_type_id', 'body_id', 'roof_type_id', 'cylinders', 'doors', 'upgrade', 'build_month'];
 <?php } else { ?>
-var validate_array = ['year', 'mileage', 'cylinders', 'doors', 'upgrade'];
+var validate_array = ['startprice', 'year', 'mileage', 'cylinders', 'doors', 'upgrade'];
 <?php } ?>
 block = true;
+
+var allow_submit = false;
+var saved = false;
 
 jQuery(document).ready(function(){
 	
@@ -16,7 +19,33 @@ jQuery(document).ready(function(){
 		if(!is_approved){
 			newAlert('Your account is not yet approved. You can not yet place a vehicle.', 'stop');
 			return false;
-		} else return validate();
+		} else {
+		
+			if(validate()){
+			
+			<?php if($_SESSION['l10n']['country_code']!='IE'){ ?>
+				return true;
+			<?php } else { ?>
+				
+				//return false;
+				$.get('/api/cartell.php', {registration: $('#rego_number').val() }, function(result){
+					$('#make_id').val(result.make);
+					$('#make_id').trigger('change');
+					
+					setTimeout(function(){
+						$("select#model_id option").each(function() {
+							this.selected = (this.text == result.model); 
+						});
+						
+					},2000);
+					
+					$('#model_id').trigger('change');
+				});
+				
+			<?php } ?>	
+			
+			)
+		}
 		
 	});
 	
@@ -55,21 +84,16 @@ jQuery(document).ready(function(){
 	
 	$('#rego_number').blur(function(){
 		$.get('/api/cartell.php', {registration: $('#rego_number').val() }, function(result){
-			//console.log(result);
-			//console.log(result.Make);
-			$('#make_id').val('Ford');
+			$('#make_id').val(result.make);
 			$('#make_id').trigger('change');
-			var text1 = 'Two';
-			/*
-			$("#model_id option").filter(function() {
-			    //may want to use $.trim in here
-			    return $(this).text() == 'Kuga'; 
-			}).attr('selected', true);
-			*/
-			
 			
 			setTimeout(function(){
-				$("select#model_id option").each(function() { this.selected = (this.text == 'Kuga'); });	
+				$("select#model_id option").each(function() {
+				//console.log(this.text);
+				//console.log(result.model);
+					this.selected = (this.text == result.model); 
+				});
+				
 			},2000);
 			
 			$('#model_id').trigger('change');
@@ -246,8 +270,10 @@ jQuery(document).ready(function(){
 			echo Site::drawDiv(false, true);
 			echo BR2;
 			
+			$import_term = $_SESSION['l10n']['country_code']=='IE' ? 'UK import' : 'personal import';
+			
 			echo Site::drawDiv('submit_item_opt_left');
-			echo Site::drawSelect('import', array('No', 'Yes'),'', '', 'personal import', $cf).BR;
+			echo Site::drawSelect('import', array('No', 'Yes'),'', '', $import_term, $cf).BR;
 			echo Site::drawSelect('colour_id', Site::getLookupTable('type_colours', 'id', 'colour', 'colour'), @$_POST['colour_id'], ($ut==4?'':2), 'colour', 'select colour', array('class'=>'sel_var')).BR;
 			
 			echo Site::drawSelect('interior_type_id', Site::getLookupTable('type_interiors', 'id', 'interior', 'interior'), @$_POST['interior_type_id'], ($ut==4?'':3), 'interior', 'select interior', array('class'=>'sel_var')).BR;

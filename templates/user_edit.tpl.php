@@ -69,12 +69,12 @@
 			
 			if($_SESSION['l10n']['country_code'] != 'IE') echo Site::drawText('zip', @$_POST['zip'], 'postcode').BR2;
 			else echo Site::drawHidden('zip', '');
-			echo Site::drawSelect('state', Site::getLookupTable('states', 'id', 'state', 'id', true, false, false, false, 'country_id = '.$_SESSION['l10n']['country_id']), $user['state'], '', $_SESSION['l10n']['term_state']).BR;
+			echo Site::drawSelect('state', Site::getLookupTable('states', 'id', 'state', 'id', true, false, false, false, 'country_id = '.$_SESSION['l10n']['country_id'].' AND id != 14'), $user['state'], '', $_SESSION['l10n']['term_state']).BR;
 
 
 
 if($_SESSION['l10n']['country_code']!='IE') echo Site::drawText('city', @$_POST['city'], $_SESSION['l10n']['term_suburb']).BR;
-			else echo Site::drawSelect('city', Site::getLookupTable('regions', 'id', 'region', 'region', false, false, false, false, 'state_id > 9'), @$_POST['city'],'', 'County').BR;
+			else echo Site::drawSelect('city', Site::getLookupTable('regions', 'id', 'region', 'region', false, false, false, false, 'state_id > 9 AND state_id < 14'), @$_POST['city'],'', 'County').BR;
 			
 			if($_SESSION['l10n']['country_code']!='IE') echo Site::drawText('zip', @$_POST['zip'], 'postcode').BR;
 			else echo Site::drawHidden('zip', '');

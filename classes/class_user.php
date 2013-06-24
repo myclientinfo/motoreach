@@ -102,10 +102,28 @@ class User {
 		$query = 'INSERT INTO match_prefs (user_id, make_id, model_id, from_year, to_year, location) VALUES ('.$user_id.', 0, 0, 1900, '.date('Y').', "'.$location_id.'")';
 		Site::runQuery($query);
 	}
-	
+
+
 	function newUserPermissions($user_id){
-		$roles = array(1 => array(1, 3, 4, 5, 6, 9), 2 => array(1, 3, 4, 9), 3 => array(1, 3, 4, 9), 4 => array(1, 3, 4, 5, 9), 5 => array(3, 4, 9), 
-		6 => array(1, 3, 4, 9), 7 => array(1, 2, 3, 4, 9), 8 => array(1, 3) );
+	
+		/*
+		1	Login
+		2	Admin
+		3	Browse
+		4	List
+		5	Request
+		6	Match
+		7	Bid
+		8	Super Admin
+		9	Send Match
+		*/
+		
+		$roles = array(
+			1 => array(1, 3, 6, 9), 2 => array(1, 3, 4, 9), 
+			3 => array(1, 3, 4, 9), 4 => array(1, 3, 4, 5, 9), 
+			5 => array(3, 4, 9), 6 => array(1, 3, 4, 9), 
+			7 => array(1, 2, 3, 4, 9), 8 => array(1, 3) 
+		);
 		
 		$roles = $roles[$_POST['user_type_id']];
 		

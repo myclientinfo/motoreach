@@ -14,6 +14,14 @@ jQuery(document).ready(function(){
 	$('#newitem').submit(function(e){
 		
 		
+		<?php if($_SESSION['l10n']['country_code']=='IE'){ ?>
+		$.post("api/add_vehicle.php", $(this).serialize()).done(function(data) {
+			$('#ID').val(data);
+			$('#customerid').val(data);
+			$('#responseSuccessURL').val('http://www.mymotoreach.com/confirm_sale.php?auction_id='+data);
+			return false;
+		});
+		<?php } ?>
 		
 	});
 	
@@ -61,7 +69,30 @@ jQuery(document).ready(function(){
 			<?php 
 			$make_array = array_combine(array_keys($GLOBALS['make_models']), array_keys($GLOBALS['make_models']));
 			
-			echo Site::drawForm('newitem', '', 'POST', 'multipart/form-data');
+			//$action = $_SESSION['l10n']['country_code']=='IE' ? '' : '';
+			
+			if($_SESSION['l10n']['country_code']=='IE'){
+			
+				echo Site::drawForm('newitem', 'https://test.ipg- online.com/connect/gateway/processing', 'POST', 'multipart/form-data');
+				
+				echo Site::drawHidden('sale_type_id', 1);
+				//storename + txndatetime + chargetotal + currency + sharedsecret
+				echo Site::drawHidden('txntype', 'sale');
+				echo Site::drawHidden('timezone', 'GMT');
+				echo Site::drawHidden('txndatetime', date('Y:m:d-H:i:s'));
+				echo Site::drawHidden('hash', sha1(bin2hex('13011553712' + date('Y:m:d-H:i:s') + '19.95' + '978' + 'jfiS9erFBG')));
+				echo Site::drawHidden('storename', '13011553712');
+				echo Site::drawHidden('mode', 'payonly');
+				echo Site::drawHidden('chargetotal', '19.95');
+				echo Site::drawHidden('currency', '978');
+				echo Site::drawHidden('customerid', '');
+				echo Site::drawHidden('responseSuccessURL', 'http://www.mymotoreach.com/confirm_sale.php');
+				
+			} else {
+				
+				echo Site::drawForm('newitem', '', 'POST', 'multipart/form-data');
+				
+			}
 			
 			echo Site::drawHidden('userID', $_SESSION['auction']->user->ID);
 			
