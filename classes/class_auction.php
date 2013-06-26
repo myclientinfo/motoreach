@@ -576,8 +576,10 @@ class Auction {
 		// HANDLE MILEAGE AND YEAR
 		if($type == 1) {
 			$query .= ' AND (p.from_year <= '.$data['data']['year'] .' AND p.to_year >= '.$data['data']['year'].')'."\n";
-			$query .= ' AND (p.mileage > '.Site::numbersOnly($data['data']['mileage']).' OR p.mileage = 0)'."\n";
+			$query .= ' AND (p.mileage > '.(int)Site::numbersOnly($data['data']['mileage']).' OR p.mileage = 0)'."\n";
 		}
+		
+		echo nl2br($query);
 		
 		$array = Site::getData($query, false, 'ID', false, ($is_public ? 'public_preferred' : false));
 		
