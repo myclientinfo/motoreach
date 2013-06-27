@@ -81,6 +81,11 @@ if($data['user_type_id'] == 5){
 	<td valign="top" class="label" style="color: #FF7F00; text-align: right; ">Compliance Date</td>
 	<td valign="top"><?php echo Site::drawPlainText('comp_year', ($data['comp_month']=='111'?'Various':str_replace('Month','',$month_array[$data['comp_month']])).' '.$data['comp_year']) ?></td>
 </tr>
+<?php } else { ?>
+<tr>
+	<td valign="top" class="label" style="color: #FF7F00; text-align: right; ">NCT</td>
+	<td valign="top"><?php echo Site::drawPlainText('nct', $data['nct_month'].' '.$data['nct_year']).BR2 ?></td>
+</tr>
 <?php } ?>
 <?php } ?>
 <tr>

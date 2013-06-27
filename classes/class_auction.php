@@ -579,8 +579,6 @@ class Auction {
 			$query .= ' AND (p.mileage > '.(int)Site::numbersOnly($data['data']['mileage']).' OR p.mileage = 0)'."\n";
 		}
 		
-		echo nl2br($query);
-		
 		$array = Site::getData($query, false, 'ID', false, ($is_public ? 'public_preferred' : false));
 		
 		if($is_public){
