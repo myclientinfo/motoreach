@@ -146,7 +146,7 @@ jQuery(document).ready(function(){
   <!-- Content unit - Three columns -->
     <?php //echo Site::drawForm('newitem');
 	    if($_SESSION['l10n']['country_code']=='IE'){
-			echo Site::drawForm('newitem', 'https://test.ipg-online.com/connect/gateway/processing', 'POST', 'multipart/form-data');
+			echo Site::drawForm('newitem', 'https://www.ipg-online.com/connect/gateway/processing', 'POST', 'multipart/form-data');
 		} else {
 			echo Site::drawForm('newitem', '', 'POST', 'multipart/form-data');
 		}
@@ -171,14 +171,19 @@ jQuery(document).ready(function(){
 				
 				if($_SESSION['l10n']['country_code']=='IE'){
 			
+					$secret = 'WTsat9Eg78';
+					$store_id = '13011553712';
+					
 					echo Site::drawHidden('sale_type_id', 1);
 					echo Site::drawHidden('txntype', 'sale');
 					echo Site::drawHidden('timezone', 'GMT');
 					echo Site::drawHidden('txndatetime', date('Y:m:d-H:i:s'));
-					echo Site::drawHidden('hash', sha1(bin2hex('13205400010' . date('Y:m:d-H:i:s') . '19.95' . '978' . 'jfiS9erFBG')));
-					echo Site::drawHidden('storename', '13205400010');
+					echo Site::drawHidden('hash', sha1(bin2hex($store_id . date('Y:m:d-H:i:s') . '13.01' . '978' . $secret)));
+					echo Site::drawHidden('storename', $store_id);
 					echo Site::drawHidden('mode', 'payonly');
-					echo Site::drawHidden('chargetotal', '19.95');
+					
+					echo Site::drawHidden('chargetotal', '13.01');
+					
 					echo Site::drawHidden('currency', '978');
 					echo Site::drawHidden('customerid', '');
 					echo Site::drawHidden('responseSuccessURL', 'http://www.mymotoreach.com/confirm_sale.php');
