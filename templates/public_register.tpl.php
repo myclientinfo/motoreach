@@ -26,7 +26,7 @@ jQuery(document).ready(function(){
 		<?php if($_SESSION['l10n']['country_code']!='IE'){ ?>
 			return true;
 		<?php } else { ?>
-			return true;
+			//return true;
 			if(submitted){
 				return true;
 			}
@@ -49,7 +49,9 @@ jQuery(document).ready(function(){
 	});
 	
 	$('#rego_number').blur(function(){
-		return false;
+		
+		return true;
+		
 		$.get('/api/cartell.php', {registration: $('#rego_number').val() }, function(result){
 			$('#make_id').val(result.make);
 			$('#make_id').trigger('change');
