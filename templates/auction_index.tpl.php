@@ -179,7 +179,7 @@
 		//if(){ 
 			
 		?>
-		<p><a href="/register.php">Become a member now</a> - 6 months free membership.</p>
+		<p><a href="/register.php">Become a member now</a></p>
 		
 		<p>Joining the MotoReach network now gives you access to hundreds of trade vehicles from dealers and the public. MotoReach instantly puts quality stock just a click and a call away. 70% of people selling cars will be replacing them, so a stock purchase may well turn into a sale as well. All you have to do is check your email for new vehicles which are regularly listed by the public, click the ones that interest you and then call the number you are sent. </p>
 				
