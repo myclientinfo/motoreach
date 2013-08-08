@@ -103,6 +103,10 @@ jQuery(document).ready(function(){
 				this.selected = (this.text == result.fuel); 
 			});
 			
+			$("select#body_id option").each(function() {
+				this.selected = (this.text == result.body); 
+			});
+			
 			$("select#transmission_type_id option").each(function() {
 				
 				if(this.text == 'Automatic' && result.transmission == 'A'){
@@ -113,8 +117,13 @@ jQuery(document).ready(function(){
 					this.selected = true;
 				}
 				
+				
 			});
 			
+			
+			$('#doors').val(result.doors);
+			
+			$('#year').val(result.reg.substr(0,2));
 			
 			
 			//$('#colour_id').val('change');

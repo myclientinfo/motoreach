@@ -81,7 +81,7 @@ $p = isset($_REQUEST['dialer'])?'..':'';
 <div id="container">
 	<?php if(!isset($_REQUEST['dialer'])){ ?>
 	<div id="header">
-	<!--<a href="http://www.merlincarauctions.ie" target="_blank"><img src="/images/Commercial__468x60.jpg" style="border: 0px; position: absolute; right: 0px; top: 25px;"></a>-->
+	<a href="http://www.mountjuliet.ie/?gclid=CIuJq-KG7rgCFcw72wodW30ArQ" target="_blank"><img src="/images/banner2.jpg" style="border: 0px; position: absolute; right: 0px; top: 25px;"></a>
 		
 		
 		
