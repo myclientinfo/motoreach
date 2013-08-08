@@ -161,17 +161,7 @@ jQuery(document).ready(function(){
 				str_month = 'Dec';
 			} 
 			
-			console.log(str_month);
-			
 			$('#nct_month').val(str_month);
-			
-			//console.log();
-			
-			//$('#nct_year').val(result.NCT_expiry_date.substr(0, 4));
-			
-			//result.NCT_expiry_date
-			
-			//$('#colour_id').val('change');
 			
 		})
 	});
