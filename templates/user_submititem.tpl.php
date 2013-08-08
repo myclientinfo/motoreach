@@ -125,6 +125,51 @@ jQuery(document).ready(function(){
 			
 			$('#year').val(result.reg.substr(0,2));
 			
+			//$('#year').val(result.reg.substr(0,2));
+			
+			//2007-01
+			
+			$('#nct_year').val(result.NCT_expiry_date.substr(0, 4));
+			
+			
+			var nct_month = result.NCT_expiry_date.substr(5, 2);
+			var str_month = '';
+			
+			if(nct_month == '01'){
+				str_month = 'Jan';
+			} else if(nct_month == '02'){
+				str_month = 'Feb';
+			} else if(nct_month == '03'){
+				str_month = 'Mar';
+			} else if(nct_month == '04'){
+				str_month = 'Apr';
+			} else if(nct_month == '05'){
+				str_month = 'May';
+			} else if(nct_month == '06'){
+				str_month = 'Jun';
+			} else if(nct_month == '07'){
+				str_month = 'Jul';
+			} else if(nct_month == '08'){
+				str_month = 'Aug';
+			} else if(nct_month == '09'){
+				str_month = 'Sep';
+			} else if(nct_month == '10'){
+				str_month = 'Oct';
+			} else if(nct_month == '11'){
+				str_month = 'Nov';
+			} else if(nct_month == '12'){
+				str_month = 'Dec';
+			} 
+			
+			console.log(str_month);
+			
+			$('#nct_month').val(str_month);
+			
+			//console.log();
+			
+			//$('#nct_year').val(result.NCT_expiry_date.substr(0, 4));
+			
+			//result.NCT_expiry_date
 			
 			//$('#colour_id').val('change');
 			
