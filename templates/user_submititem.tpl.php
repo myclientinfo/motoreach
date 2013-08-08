@@ -84,19 +84,41 @@ jQuery(document).ready(function(){
 	
 	$('#rego_number').blur(function(){
 		$.get('/api/cartell.php', {registration: $('#rego_number').val() }, function(result){
-			$('#make_id').val(result.make);
+			$('#make_id').val(result.make.toUpperCase());
 			$('#make_id').trigger('change');
 			
 			setTimeout(function(){
 				$("select#model_id option").each(function() {
-				//console.log(this.text);
-				//console.log(result.model);
-					this.selected = (this.text == result.model); 
+					this.selected = (this.text.toUpperCase() == result.model); 
 				});
 				
 			},2000);
 			
-			$('#model_id').trigger('change');
+			$("select#colour_id option").each(function() {
+				this.selected = (this.text == result.colour); 
+			});
+			
+			
+			$("select#fuel_type_id option").each(function() {
+				this.selected = (this.text == result.fuel); 
+			});
+			
+			$("select#transmission_type_id option").each(function() {
+				
+				if(this.text == 'Automatic' && result.transmission == 'A'){
+					this.selected = true;
+				}
+				
+				if(this.text == 'Manual' && result.transmission == 'M'){
+					this.selected = true;
+				}
+				
+			});
+			
+			
+			
+			//$('#colour_id').val('change');
+			
 		})
 	});
 	<?php } ?>
