@@ -123,11 +123,13 @@ jQuery(document).ready(function(){
 			
 			$('#doors').val(result.doors);
 			
-			$('#year').val(result.reg.substr(0,2));
-			
-			//$('#year').val(result.reg.substr(0,2));
-			
-			//2007-01
+			if(result.reg.substr(0,2) > 50){
+				set_year = '19'+result.reg.substr(0,2);
+			} else {
+				set_year = '20'+result.reg.substr(0,2);
+			}
+
+			$('#year').val(set_year);
 			
 			$('#nct_year').val(result.NCT_expiry_date.substr(0, 4));
 			
