@@ -79,13 +79,15 @@ if(isset($_POST['formdata']) && $_POST['formdata'] == 'submission'){
 			$message = new Message();
 			$vehicle_matches = Auction::getVehicleMatches($item);
 			
+			mail('matt@motoreach.com','Matches',serialize($vehicle_matches));
+
 			$groups_preferred = User::loadGroupPreferred($_POST['userID']);
 			foreach($vehicle_matches as $m){
 				$message_data = $message->getMessageData(9, $m['ID'], $groups_preferred);
 				$message->sendMessage($item->data, $message_data);
 			}
 			$log = $message->getMatchLog($id);
-			//mail('matt@motoreach.com','Match Log Sent',serialize($log));
+			mail('matt@motoreach.com','Match Log Sent',serialize($log));
 			$ob = ob_get_contents();
 			ob_end_clean();
 		}
