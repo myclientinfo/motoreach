@@ -184,8 +184,8 @@ class Message{
 				$mail->IsHTML(true); // send as HTML
 				//$GLOBALS['debug']->printr($_SERVER['HTTP_HOST']);
 				
-				if($_SERVER['HTTP_HOST']!='motoreach' && $_SERVER['HTTP_HOST']!='motopublic' && $data['make'] != 'Demo') $mail->Send();
-				else $GLOBALS['debug']->printr($html_body, true);
+				//if($_SERVER['HTTP_HOST']!='motoreach' && $_SERVER['HTTP_HOST']!='motopublic' && $data['make'] != 'Demo') $mail->Send();
+				//else $GLOBALS['debug']->printr($html_body, true);
 				
 			} catch (phpmailerException $exception) {
 				@mail('matt@motoreach.com', 'matches', 'error sending mail to '.$message['email'].$GLOBALS['debug']->printr($message, false, true).$exception->getMessage());
