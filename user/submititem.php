@@ -56,7 +56,7 @@ $main_content->set('sidebar', $sidebar->fetch());
 
 $message = "";
 $stage = "submission";
-
+//asdf
 $check_fields = array();
 
 if(isset($_POST['formdata']) && $_POST['formdata'] == 'submission'){
