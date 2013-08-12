@@ -60,49 +60,36 @@ $stage = "submission";
 $check_fields = array();
 
 if(isset($_POST['formdata']) && $_POST['formdata'] == 'submission'){
-	echo '<pre>';
+	
 	foreach(array('description', 'buyoutprice', 'startprice') as $f){
 		if($_POST[$f] == 'optional') $_POST[$f] = '';
 	}
-	echo 'in initial loop<br>';
+	
 	$item = new Item($_POST);
 	
     $result = true;
 	
 	if($result === true && empty($check_fields)){         
 		
-		//ob_start();
+		ob_start();
 		$id = Auction::addItem($item);
 		$item = Auction::getItem($id);
-		echo 'new item saved:'.$id.'<br>';
-		echo 'item debug: <br>';
-		print_r($item);
 
 		if(User::hasPermission('Send Match')){
-			echo 'user has permission<br>';
+
 			$message = new Message();
-			echo 'create message class<br>';
+
 			$vehicle_matches = Auction::getVehicleMatches($item);
-			echo 'vehicle matches:<br>';
-			print_r($vehicle_matches);
-			//mail('matt@motoreach.com','Matches',serialize($vehicle_matches));
 
 			$groups_preferred = User::loadGroupPreferred($_POST['userID']);
-			echo 'groups preferred - probably blank:<br>';
-			print_r($groups_preferred);
-
-			echo '<br>loop over data here<br>';
 			foreach($vehicle_matches as $m){
 				$message_data = $message->getMessageData(9, $m['ID'], $groups_preferred);
 				$message->sendMessage($item->data, $message_data);
 			}
-			echo 'get the match log<br>';
+			
 			$log = $message->getMatchLog($id);
-			print_r($log);
-			die('block redirect');
-			//mail('matt@motoreach.com','Match Log Sent',serialize($log));
-			//$ob = ob_get_contents();
-			//ob_end_clean();
+			$ob = ob_get_contents();
+			ob_end_clean();
 		}
 		
 		header('location: /items.php?itemID='.$id.'&new');
