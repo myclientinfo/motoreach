@@ -184,7 +184,7 @@ jQuery(document).ready(function(){
 					echo Site::drawHidden('storename', $store_id);
 					echo Site::drawHidden('mode', 'payonly');
 					
-					echo Site::drawHidden('chargetotal', '13.01');
+					echo Site::drawSelect('chargetotal', array('19.95', '14.95', '9.95'), '','', 'Charge').BR2;
 					
 					echo Site::drawHidden('currency', '978');
 					echo Site::drawHidden('customerid', '');
@@ -290,7 +290,9 @@ jQuery(document).ready(function(){
 			echo Site::drawSelect('interior_colour_id', Site::getLookupTable('type_colours', 'id', 'colour', 'colour'), @$_POST['interior_colour_id'], 8, 'interior colour', $cf, array('class'=>'sel_var')).BR2;
 			
 			echo Site::drawSelect('fuel_type_id', Site::getLookupTable('type_fuel', 'id', 'fuel', 'fuel'), @$_POST['type_fuel'], 1, 'fuel type', true).BR;
+			
 			echo Site::drawSelect('transmission_id', Site::getLookupTable('type_transmission', 'id', 'transmission', 'transmission'), @$_POST['transmission_id'], 1, 'transmission', true).BR;
+			
 			echo Site::drawSelect('drive_type_id', Site::getLookupTable('type_drives', 'id', 'drive', 'drive'), @$_POST['drive_type_id'], 2, 'drive type', true).BR;
 			echo Site::drawSelect('body_id', Site::getLookupTable('type_body', 'id', 'body', 'body'), @$_POST['body_id'], 1, 'body type', true).BR;
 			echo Site::drawSelect('roof_type_id', Site::getLookupTable('type_roofs', 'id', 'roof', 'roof'), @$_POST['roof_type_id'], 1, 'roof type', true).BR2;
