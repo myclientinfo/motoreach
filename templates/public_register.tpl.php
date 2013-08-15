@@ -184,7 +184,7 @@ jQuery(document).ready(function(){
 					echo Site::drawHidden('storename', $store_id);
 					echo Site::drawHidden('mode', 'payonly');
 					
-					echo Site::drawSelect('chargetotal', array('19.95', '14.95', '9.95'), '','', 'Charge').BR2;
+					echo Site::drawSelect('chargetotal', array('19.95' => '19.95', '14.95'=> '14.95', '9.95' => '9.95'), '','', 'Charge').BR2;
 					
 					echo Site::drawHidden('currency', '978');
 					echo Site::drawHidden('customerid', '');
