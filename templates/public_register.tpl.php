@@ -57,22 +57,89 @@ jQuery(document).ready(function(){
 	});
 	
 	$('#rego_number').blur(function(){
-		
-		return true;
-		
-		$.get('/api/cartell.php', {registration: $('#rego_number').val() }, function(result){
-			$('#make_id').val(result.make);
+		$.get('/api/motorcheck.php', {registration: $('#rego_number').val() }, function(result){
+			$('#make_id').val(result.make.toUpperCase());
 			$('#make_id').trigger('change');
 			
 			setTimeout(function(){
 				$("select#model_id option").each(function() {
-					this.selected = (this.text == result.model); 
+					this.selected = (this.text.toUpperCase() == result.model); 
 				});
 				
 			},2000);
 			
-			$('#model_id').trigger('change');
-		});
+			$("select#colour_id option").each(function() {
+				this.selected = (this.text == result.colour); 
+			});
+			
+			
+			$("select#fuel_type_id option").each(function() {
+				this.selected = (this.text == result.fuel); 
+			});
+			
+			$("select#body_id option").each(function() {
+				this.selected = (this.text == result.body); 
+			});
+			
+			$("select#transmission_type_id option").each(function() {
+				
+				if(this.text == 'Automatic' && result.transmission == 'A'){
+					this.selected = true;
+				}
+				
+				if(this.text == 'Manual' && result.transmission == 'M'){
+					this.selected = true;
+				}
+				
+				
+			});
+			
+			
+			$('#doors').val(result.doors);
+			
+			if(result.reg.substr(0,2) > 50){
+				set_year = '19'+result.reg.substr(0,2);
+			} else {
+				set_year = '20'+result.reg.substr(0,2);
+			}
+
+			$('#year').val(set_year);
+			
+			$('#nct_year').val(result.NCT_expiry_date.substr(0, 4));
+			
+			
+			var nct_month = result.NCT_expiry_date.substr(5, 2);
+			var str_month = '';
+			
+			if(nct_month == '01'){
+				str_month = 'Jan';
+			} else if(nct_month == '02'){
+				str_month = 'Feb';
+			} else if(nct_month == '03'){
+				str_month = 'Mar';
+			} else if(nct_month == '04'){
+				str_month = 'Apr';
+			} else if(nct_month == '05'){
+				str_month = 'May';
+			} else if(nct_month == '06'){
+				str_month = 'Jun';
+			} else if(nct_month == '07'){
+				str_month = 'Jul';
+			} else if(nct_month == '08'){
+				str_month = 'Aug';
+			} else if(nct_month == '09'){
+				str_month = 'Sep';
+			} else if(nct_month == '10'){
+				str_month = 'Oct';
+			} else if(nct_month == '11'){
+				str_month = 'Nov';
+			} else if(nct_month == '12'){
+				str_month = 'Dec';
+			} 
+			
+			$('#nct_month').val(str_month);
+			
+		})
 	});
 	
 	$('#state').bind('blur change', function(){
@@ -267,6 +334,9 @@ jQuery(document).ready(function(){
 			echo Site::drawHidden('auctionlength', 14);
 			
 			echo Site::drawText('rego_number', '', 'registration').BR2;
+			
+			echo Site::drawSelect('nct_month', $month_array, '', '', 'NCT Info');
+			echo Site::drawSelect('nct_year', array(''=>'', '2013'=>'2013', '2014' => '2014', '2015' => '2015', '2016' => '2016'),'', '').BR2;
 			
 			echo Site::drawText('year', @$_POST['year'], 'Year').BR;
 			
