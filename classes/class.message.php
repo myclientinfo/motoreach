@@ -114,7 +114,7 @@ class Message{
 			case "14": $msg = "Reset MotoReach password"; break;
 			case "15": $msg = "MotoReach request limit reached"; break;
 			case "16": $msg = "MotoReach item extended"; break;
-			case "17": $msg = "MotoReach Invoice"; break;
+			case "17": $msg = "MyMotoReach Confirmation"; break;
 			case "19": $msg = "Report Email"; break;
 		}
 		
@@ -137,7 +137,7 @@ class Message{
 			
 			$body = new Template('email_'.$message['message_type_id']);
 			$body->set('data', $data);
-			$GLOBALS['debug']->printr($data);
+			//$GLOBALS['debug']->printr($data);
 			$body->set('email', $message);
 			
 			if($message['message_type_id'] == 9){
@@ -153,7 +153,7 @@ class Message{
 			} else if($message['message_type_id'] == 14){
 				$subject = 'Reset your MotoReach Password';
 			} else if($message['message_type_id'] == 17){
-				$subject = 'Invoice from myMotoReach';
+				$subject = 'Email Confirmation from myMotoReach';
 			} else if($message['message_type_id'] == 18){
 				$subject = 'Listed Yesterday on MotoReach';
 			} else if($message['message_type_id'] == 19){
@@ -184,8 +184,10 @@ class Message{
 				$mail->IsHTML(true); // send as HTML
 				//$GLOBALS['debug']->printr($_SERVER['HTTP_HOST']);
 				
-				//if($_SERVER['HTTP_HOST']!='motoreach' && $_SERVER['HTTP_HOST']!='motopublic' && $data['make'] != 'Demo') $mail->Send();
-				//else $GLOBALS['debug']->printr($html_body, true);
+				if($_SERVER['HTTP_HOST']!='motoreach' && $_SERVER['HTTP_HOST']!='motopublic' && $data['make'] != 'Demo') $mail->Send();
+				else $GLOBALS['debug']->printr($html_body, true);
+
+
 				
 			} catch (phpmailerException $exception) {
 				@mail('matt@motoreach.com', 'matches', 'error sending mail to '.$message['email'].$GLOBALS['debug']->printr($message, false, true).$exception->getMessage());
