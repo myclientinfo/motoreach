@@ -541,9 +541,9 @@ oFCKeditor.Create() ;
 	}
 	
 	function getData($query, $single = false, $key_by_id = false, $value = false, $group = false){
+		
 		$result = mysql_query($query);
 		if(!$result){
-			//$GLOBALS['debug']->query_fail($query, true);
 			Site::mysqlConnect();
 			$result = mysql_query($query);
 		}
@@ -560,6 +560,7 @@ oFCKeditor.Create() ;
 				else $array[$row[$key_by_id]] = $row[$value];
 			}
 		}
+		
 		if(strstr($query, 'SQL_CALC_FOUND_ROWS')){
 			$result = mysql_query('SELECT FOUND_ROWS() AS total');
 			$total = mysql_fetch_assoc($result);
