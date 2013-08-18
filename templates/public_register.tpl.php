@@ -301,6 +301,7 @@ jQuery(document).ready(function(){
 			echo Site::drawSelect('fuel_type_id', Site::getLookupTable('type_fuel', 'id', 'fuel', 'fuel'), @$_POST['type_fuel'], 1, 'fuel type', true).BR;
 			echo Site::drawSelect('transmission_id', Site::getLookupTable('type_transmission', 'id', 'transmission', 'transmission'), @$_POST['transmission_id'], 1, 'transmission', true).BR;
 			echo Site::drawSelect('drive_type_id', Site::getLookupTable('type_drives', 'id', 'drive', 'drive'), @$_POST['drive_type_id'], 2, 'drive type', true).BR;
+			echo Site::drawText('engine_size', @$_POST['engine_size'], 'Engine Size').BR;
 			echo Site::drawSelect('body_id', Site::getLookupTable('type_body', 'id', 'body', 'body'), @$_POST['body_id'], 1, 'body type', true).BR;
 			echo Site::drawSelect('roof_type_id', Site::getLookupTable('type_roofs', 'id', 'roof', 'roof'), @$_POST['roof_type_id'], 1, 'roof type', true).BR2;
 			echo Site::drawSelect('cylinders', array(''=>'select cylinders', 3=>3, 4=>4, 5=>5,6=>6,8=>8,10=>10,12=>12,16=>16), @$_POST['cylinders'], 6, 'cylinders').BR;
