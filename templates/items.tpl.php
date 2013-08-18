@@ -301,7 +301,7 @@ $length_seconds = Site::getLookupTable('auction_lengths', 'id', 'lis', 'id', fal
 				echo Site::drawPlainText('transmission', $item->data['transmission'], 'transmission').BR;
 				echo Site::drawPlainText('roof', $item->data['roof'], 'roof').BR;
 				echo Site::drawPlainText('body', $item->data['body'], 'body').BR;
-				echo Site::drawPlainText('drive', $item->data['drive'], 'drive').BR;
+				if($_SESSION['l10n']['country_code']!='IE')echo Site::drawPlainText('drive', $item->data['drive'], 'drive').BR;
 				echo Site::drawPlainText('doors', $item->data['doors'], 'doors').BR;
 				if($_SESSION['l10n']['country_code']!='IE') echo Site::drawPlainText('cylinders', $item->data['cylinders'], 'cylinders').BR2;
 				?>
@@ -364,11 +364,9 @@ $length_seconds = Site::getLookupTable('auction_lengths', 'id', 'lis', 'id', fal
 				?>
 			</div>
 			
-			<?php }
-			
-			//lseif($item->data['status'] == 'Active') { 
-			?>
 			<?php 
+			}
+			
 			if(@$latest_bid['userID'] == $user->ID){
 				echo '<span id="you_win">You are the winning bidder.</span>';
 				?>

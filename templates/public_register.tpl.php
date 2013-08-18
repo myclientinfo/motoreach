@@ -36,9 +36,17 @@ jQuery(document).ready(function(){
 				$('#customerid').val(data);
 				$('#responseSuccessURL').val('http://www.mymotoreach.com/confirm_sale.php?auction_id='+data);
 				$('#responseFailURL').val('http://www.mymotoreach.com/confirm_sale.php?auction_id='+data);
-				//return false;
-				submitted = true;
-				$('#newitem').submit();
+				
+				$.post("api/get_hash.php", $('#newitem').serialize()).done(function(data) {
+					
+					//return false;
+					submitted = true;
+					
+					$('#hash').val(data);
+					
+					$('#newitem').submit();
+				});
+				
 			});
 		<?php } ?>
 		} else {
@@ -180,12 +188,13 @@ jQuery(document).ready(function(){
 					echo Site::drawHidden('txntype', 'sale');
 					echo Site::drawHidden('timezone', 'GMT');
 					echo Site::drawHidden('txndatetime', date('Y:m:d-H:i:s'));
-					echo Site::drawHidden('hash', sha1(bin2hex($store_id . date('Y:m:d-H:i:s') . '13.01' . '978' . $secret)));
+					echo Site::drawHidden('hash', sha1(bin2hex($store_id . date('Y:m:d-H:i:s') . '19.95978' . $secret)));
 					echo Site::drawHidden('storename', $store_id);
 					echo Site::drawHidden('mode', 'payonly');
 					
-					echo Site::drawSelect('chargetotal', array('19.95' => '19.95', '14.95'=> '14.95', '9.95' => '9.95'), '','', 'Charge').BR2;
-					
+					//echo Site::drawHidden('chargetotal', '19.95');
+					echo Site::drawSelect('chargetotal', array('19.95' => '&euro;19.95', '14.95'=> '&euro;14.95', '9.95' => '&euro;9.95'), '','', 'Charge').BR2;
+
 					echo Site::drawHidden('currency', '978');
 					echo Site::drawHidden('customerid', '');
 					echo Site::drawHidden('responseSuccessURL', 'http://www.mymotoreach.com/confirm_sale.php');
@@ -290,9 +299,7 @@ jQuery(document).ready(function(){
 			echo Site::drawSelect('interior_colour_id', Site::getLookupTable('type_colours', 'id', 'colour', 'colour'), @$_POST['interior_colour_id'], 8, 'interior colour', $cf, array('class'=>'sel_var')).BR2;
 			
 			echo Site::drawSelect('fuel_type_id', Site::getLookupTable('type_fuel', 'id', 'fuel', 'fuel'), @$_POST['type_fuel'], 1, 'fuel type', true).BR;
-			
 			echo Site::drawSelect('transmission_id', Site::getLookupTable('type_transmission', 'id', 'transmission', 'transmission'), @$_POST['transmission_id'], 1, 'transmission', true).BR;
-			
 			echo Site::drawSelect('drive_type_id', Site::getLookupTable('type_drives', 'id', 'drive', 'drive'), @$_POST['drive_type_id'], 2, 'drive type', true).BR;
 			echo Site::drawSelect('body_id', Site::getLookupTable('type_body', 'id', 'body', 'body'), @$_POST['body_id'], 1, 'body type', true).BR;
 			echo Site::drawSelect('roof_type_id', Site::getLookupTable('type_roofs', 'id', 'roof', 'roof'), @$_POST['roof_type_id'], 1, 'roof type', true).BR2;

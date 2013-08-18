@@ -6,7 +6,7 @@ class VehicleDetails extends Site{
 
 	var $table_name = 'vehicle_details';
 	
-	var $table_fields = array('auction_id', 'id', 'ID', 'userID','mileage','build_month', 'year', 'comp_month', 'comp_year', 'startprice', 
+	var $table_fields = array('auction_id', 'id', 'ID', 'userID','mileage','build_month', 'year', 'comp_month', 'comp_year', 'startprice', 'location_id',
 							'buyoutprice', 'spend', 'statusID','model_id', 'make_id', 'auctionlength', 'dateentered', 'auction_end', 
 							'badge_id', 'series_id', 'sale_type_id',  'max_requests',  'registration', 'colour_id',
 							'transmission_id', 'body_id', 'drive_type_id', 'fuel_type_id', 'roof_type_id', 'interior_type_id', 
@@ -15,7 +15,7 @@ class VehicleDetails extends Site{
 	
 	var $save_skip = array('userID', 'make_id','startprice','buyoutprice','description', 'auctionlength', 'sale_type_id', 'currentprice','dateentered', 'auction_end', 'statusID', 'admin_entered' );
 	
-	var $field_list = 'CONCAT_WS(" ", vd.year, mk.make, md.model, bdg.badge, s.series) as vehicle, a.*,vd.*, u.*, md.make_id, mk.make, md.model, l.length, tc.colour, tic.colour as interior_colour, interior, body, fuel, transmission, body, roof, drive, bdg.badge, s.series, admin_entered, st.state as text_state, a.ID, nct_year, nct_month';
+	var $field_list = 'CONCAT_WS(" ", vd.year, mk.make, md.model, bdg.badge, s.series) as vehicle, u.location_id, a.*,vd.*, u.*, md.make_id, mk.make, md.model, l.length, tc.colour, tic.colour as interior_colour, interior, body, fuel, transmission, body, roof, drive, bdg.badge, s.series, admin_entered, st.state as text_state, a.ID, nct_year, nct_month, region';
 	
 	var $list_header = array('auction_id','dealership_name', 'fullname', 'vehicle', 'dateentered', 'auction_end');
 
@@ -95,6 +95,7 @@ class VehicleDetails extends Site{
 					 LEFT JOIN '.$_SESSION['l10n']['table_prefix'].'makes AS mk ON mk.id = md.make_id
 					 LEFT JOIN type_transmission AS tt ON tt.id = vd.transmission_id
 					 LEFT JOIN type_body AS tb ON tb.id = vd.body_id
+					 LEFT JOIN regions AS rg ON rg.id = u.location_id
 					 LEFT JOIN type_drives AS td ON td.id = vd.drive_type_id
 					 LEFT JOIN type_fuel AS tf ON tf.id = vd.fuel_type_id
 					 LEFT JOIN type_roofs AS tr ON tr.id = vd.roof_type_id
@@ -103,8 +104,10 @@ class VehicleDetails extends Site{
 					 LEFT JOIN type_colours AS tic ON tic.id = vd.interior_colour_id
 					 LEFT JOIN auction_status AS aus ON a.statusID = aus.id
 					 WHERE a.ID = '.$id;
-					 
-		return Site::getData($query, true);
+		
+		$data = Site::getData($query, true);
+		
+		return $data;
 	}
 	
 	

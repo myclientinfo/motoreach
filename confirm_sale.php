@@ -33,14 +33,17 @@ if(isset($_GET['auction_id'])){
 	Auction::sendVehicleMatches($id, $user['ID'], $content);
 
 	$log = Message::getLog(9, $id);
+	
+	$message = new Message();
+	$message_data = $message->getMessageData(17, $user_id);
+	$message->sendMessage($content->data, $message_data);
+	
 } 
-
 
 $main_content = new Template('confirm_sale');
 $main_content->set('response', $response);
 $main_content->set('log', $log);
 $main_content->set('content', $content->data);
-
 
 $template->set('content', $main_content->fetch());
 echo $template->fetch();

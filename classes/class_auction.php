@@ -554,10 +554,9 @@ class Auction {
 		if(is_object($data)){
 			$data = get_object_vars($data);
 		}
-		
 		$is_public = $data['data']['user_type_id'] == 7 && $type == 1;
 		$is_public = false;
-		
+		//print_r($data);
 		$query = 'SELECT u.*, mk.make, md.model, u.ID FROM auction_users AS u 
 					JOIN match_prefs AS p ON u.ID = p.user_id
 					LEFT JOIN '.$_SESSION['l10n']['table_prefix'].'models AS md ON md.id = p.model_id
@@ -578,6 +577,8 @@ class Auction {
 			$query .= ' AND (p.from_year <= '.$data['data']['year'] .' AND p.to_year >= '.$data['data']['year'].')'."\n";
 			$query .= ' AND (p.mileage > '.(int)Site::numbersOnly($data['data']['mileage']).' OR p.mileage = 0)'."\n";
 		}
+		
+		
 		
 		$array = Site::getData($query, false, 'ID', false, ($is_public ? 'public_preferred' : false));
 		
@@ -709,7 +710,7 @@ class Auction {
      */
     function getItem($itemID, $object = true) {
         $myDB = &ADONewConnection(DSN);
-        $query = "SELECT *, u.city, ".($_SESSION['l10n']['country_code'] == 'IE'?'rg.region AS city2, ':'')." v.model_id as model_id, roof, v.id AS vid, MAX(b.amount) as highest_bid, extended, 
+        $query = "SELECT *, u.city, ".($_SESSION['l10n']['country_code'] == 'IE'?'rg.region AS city2, ':'')." v.model_id as model_id, roof, v.id AS vid, MAX(b.amount) as highest_bid, extended, u.location_id,
 						aus.status as auction_status, b.userID as latest_bidder, 
 						SUM(CASE WHEN b.typeID = 1 OR b.typeID = 8 THEN 1 ELSE 0 END ) AS count_bids,
 						SUM(CASE WHEN b.typeID = 9 THEN 1 ELSE 0 END) AS count_requests,
@@ -739,8 +740,11 @@ class Auction {
 					WHERE a.ID = $itemID
 					GROUP BY a.ID";
 		
-		if(!$object) return $GLOBALS['db']->getAll($query);
-        else $rs = &$myDB->Execute($query);
+		if(!$object){
+			return Site::getData($query, true);
+		} else {
+			$rs = &$myDB->Execute($query);
+		}
         
         
         if (!$rs || $rs->RecordCount() < 1) {
@@ -1531,6 +1535,7 @@ class Auction {
 		$message = new Message();
 		
 		$vehicle_matches = Auction::getVehicleMatches($content);
+	
 		$groups_preferred = User::loadGroupPreferred($user_id);
 		
 		$sent = array();

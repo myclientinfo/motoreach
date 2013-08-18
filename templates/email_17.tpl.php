@@ -40,19 +40,24 @@ label {
 <tr>
   <td style="padding: 15px;"><table border="0" cellspacing="0" cellpadding="0" width="764">
     <tr>
-      <td width="764" valign="top"><p>MotoReach</p>
-        <p>55 McLachlan Street<br>
-          Fortitude Valley, QLD 4006<br>
-          Phone  <span id="phone">1300 369 370</span></p>
-        <h3><strong>ABN: 68 149 519 666</strong></h3></td>
+      <td width="764" valign="top">
+
+      <p>MotoReach</p>
+        <p><?php echo $_SESSION['l10n']['address']?>
+          Phone  <span id="phone"><?php echo $_SESSION['l10n']['public_phone']?></span></p>
+        <!--<h3><strong>ABN: 68 149 519 666</strong></h3>-->
+        </td>
     </tr>
     </table></td>
 </tr>
 <tr>
   <td style="padding: 15px;">
    
-    <p>Congratulations! You have now sent your vehicle to the MotoReach Vehicle Dealer Network.<br /><br />
-    A summary of the details we have in our system are as follows:  </p></td>
+    <p>Congratulations! Your credit card has been successfully processed, and we have now sent your vehicle to the MotoReach Vehicle Dealer Network.<br /><br />
+    
+    A summary of the details we have in our system are as follows:  </p>
+    
+    </td>
   </tr>
 <tr>
   <td style="padding: 15px;"><table width="63%" align="center" cellspacing="5" bgcolor="white" id="main_content3" style="font-size: 12px;">
@@ -73,17 +78,17 @@ label {
       <td valign="top" width="48%"><?php echo Site::drawPlainText('streetaddress', $data['streetaddress']) ?></td>
       </tr>
     <tr>
-      <td valign="top" class="label" style="color: #FF7F00; text-align: right; ">Suburb</td>
-      <td valign="top"><?php echo Site::drawPlainText('city', $data['city']) ?></td>
+      <td valign="top" class="label" style="color: #FF7F00; text-align: right; ">City</td>
+      <td valign="top"><?php echo Site::drawPlainText('city', $data['region']) ?></td>
       </tr>
     <tr>
       <td valign="top" class="label" style="color: #FF7F00; text-align: right; ">State</td>
       <td valign="top"><?php echo Site::drawPlainText('state', $data['text_state'])?></td>
       </tr>
-    <tr>
+    <!--<tr>
       <td valign="top" class="label" style="color: #FF7F00; text-align: right; ">Postcode</td>
       <td valign="top"><?php echo Site::drawPlainText('zip', $data['zip'])?></td>
-      </tr>
+      </tr>-->
     <tr>
       <td valign="top" width="45%" style="color: #FF7F00; text-align: right; ">Vehicle</td>
       <td valign="top" width="55%"><?php echo Site::drawPlainText('model', $data['make'] . ' ' . $data['model'] . ' ' . @$data['badge']  . ' ' . @$data['series'])?></td>

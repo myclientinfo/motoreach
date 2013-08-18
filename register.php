@@ -55,10 +55,11 @@ if(isset($_POST['formdata']) && $_POST['formdata']=='register'){
 
     $user = new User($_POST);
     $validate = new Validate();
-    //$_SESSION = $_POST;
     $result = $validate->checkForm($_POST);
 	
-	if($_POST['password'] == '' || $_POST['confirmpassword'] == '' || $_POST['fullname'] == '' || $_POST['email'] == '' ) $result = false;
+	if($_POST['password'] == '' || $_POST['confirmpassword'] == '' || $_POST['fullname'] == '' || $_POST['email'] == '' ) {
+		$result = false;
+	}
 	
 	if($GLOBALS['project'] == 'public') $result = true;
 	
