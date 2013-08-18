@@ -350,7 +350,15 @@ jQuery(document).ready(function(){
 			
 			echo Site::drawSelect('fuel_type_id', Site::getLookupTable('type_fuel', 'id', 'fuel', 'fuel'), @$_POST['type_fuel'], ($ut==4?'':1), 'fuel type', 'select fuel type').BR;
 			echo Site::drawSelect('transmission_type_id', Site::getLookupTable('type_transmission', 'id', 'transmission', 'transmission'), @$_POST['transmission_type_id'], ($ut==4?'':1), 'transmission', true).BR;
-			echo Site::drawSelect('drive_type_id', Site::getLookupTable('type_drives', 'id', 'drive', 'drive'), @$_POST['drive_type_id'], 1, 'drive type', true).BR;
+			
+			if($_SESSION['l10n']['country_code']!='IE'){
+				echo Site::drawSelect('drive_type_id', Site::getLookupTable('type_drives', 'id', 'drive', 'drive'), @$_POST['drive_type_id'], 1, 'drive type', true).BR;
+			} else {
+				echo Site::drawHidden('drive_type_id', 0);
+			}
+			
+			
+			
 			$type_body_table = $_SESSION['l10n']['country_code']!='IE'? 'type_body' : 'uk_type_body';
 			echo Site::drawSelect('body_id', Site::getLookupTable($type_body_table, 'id', 'body', 'body'), @$_POST['body_id'], 1, 'body type', true).BR;
 			echo Site::drawSelect('roof_type_id', Site::getLookupTable('type_roofs', 'id', 'roof', 'roof'), @$_POST['roof_type_id'], 1, 'roof type', true).BR2;
