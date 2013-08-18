@@ -15,14 +15,14 @@ class VehicleDetails extends Site{
 	
 	var $save_skip = array('userID', 'make_id','startprice','buyoutprice','description', 'auctionlength', 'sale_type_id', 'currentprice','dateentered', 'auction_end', 'statusID', 'admin_entered' );
 	
-	var $field_list = 'CONCAT_WS(" ", vd.year, mk.make, md.model, bdg.badge, s.series) as vehicle, u.location_id, a.*,vd.*, u.*, md.make_id, mk.make, md.model, l.length, tc.colour, tic.colour as interior_colour, interior, body, fuel, transmission, body, roof, drive, bdg.badge, s.series, admin_entered, st.state as text_state, a.ID, nct_year, nct_month, region';
+	var $field_list = 'CONCAT_WS(" ", vd.year, mk.make, md.model, bdg.badge, s.series) as vehicle, engine_size, u.location_id, a.*,vd.*, u.*, md.make_id, mk.make, md.model, l.length, tc.colour, tic.colour as interior_colour, interior, body, fuel, transmission, body, roof, drive, bdg.badge, s.series, admin_entered, st.state as text_state, a.ID, nct_year, nct_month, region';
 	
 	var $list_header = array('auction_id','dealership_name', 'fullname', 'vehicle', 'dateentered', 'auction_end');
 
 	var $table_field_mapping = array(
 		'id' => array('type' => 'hidden'),
 		'auction_id' => array('type' => 'hidden'),
-		'engine_size' => array('type' => 'hidden'),
+		//'engine_size' => array('type' => 'hidden'),
 		'auction_id' => array('type' => 'join', 'link' => 'true', 'table' => 'auction_items', 'as' => 'a', 'on' => 'a.ID = vd.auction_id', 'label'=>'ID'),
 		'userID' => array('type' => 'join', 'link' => 'true', 'table' => 'auction_users', 'as' => 'u', 'on' => 'a.userID = u.ID'),
 		'model_id' => array('type' => 'join', 'link' => 'true', 'table' => 'models', 'as' => 'md', 'on' => 'md.id = vd.model_id'),
