@@ -362,11 +362,15 @@ jQuery(document).ready(function(){
 			$type_body_table = $_SESSION['l10n']['country_code']!='IE'? 'type_body' : 'uk_type_body';
 			echo Site::drawSelect('body_id', Site::getLookupTable($type_body_table, 'id', 'body', 'body'), @$_POST['body_id'], 1, 'body type', true).BR;
 			echo Site::drawSelect('roof_type_id', Site::getLookupTable('type_roofs', 'id', 'roof', 'roof'), @$_POST['roof_type_id'], 1, 'roof type', true).BR2;
+			
 			if($_SESSION['l10n']['country_code']!='IE'){
 			echo Site::drawSelect('cylinders', array(''=>'select cylinders', 3=>3, 4=>4, 5=>5,6=>6,8=>8,10=>10,12=>12,16=>16), @$_POST['cylinders'], 6, 'cylinders').BR;
 			} else {
 			echo Site::drawHidden('cylinders', 4);
 			}
+			
+			echo Site::drawText('engine_size', @$_POST['engine_size'], 'Engine Size').BR2;
+			
 			echo Site::drawSelect('doors', array(''=>'select doors', 2=>2,3=>3,4=>4,5=>5), @$_POST['doors'], 4, 'doors').BR;
 			echo Site::drawDiv();
 			
