@@ -83,7 +83,7 @@ jQuery(document).ready(function(){
 	$('#mileage').trigger('blur');
 	
 	$('#rego_number').blur(function(){
-		$.get('/api/cartell.php', {registration: $('#rego_number').val() }, function(result){
+		$.get('/api/motorcheck.php', {registration: $('#rego_number').val() }, function(result){
 			$('#make_id').val(result.make.toUpperCase());
 			$('#make_id').trigger('change');
 			
