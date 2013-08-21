@@ -90,10 +90,12 @@ $month_array = Site::getShortMonthsArray();
 	<td valign="top" class="label" style="color: #FF7F00; text-align: right; ">To Spend</td>
 	<td valign="top"><?php echo Site::drawPlainText('spend', $_SESSION['l10n']['currency_symbol'].$data['spend'])?></td>
 </tr>
+<!--
 <tr>
 	<td valign="top" class="label" style="color: #FF7F00; text-align: right; ">Rego Ends</td>
 	<td valign="top"><?php echo Site::drawPlainText('registration', $data['registration'])?></td>
 </tr>
+-->
 </table>
 
 	</td>

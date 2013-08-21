@@ -21,7 +21,8 @@ if(isset($_REQUEST['formdata'])){
 	
 	$type_id = $is_buyout?8:($_REQUEST['action_type']=='request'?'9':'1');
 	
-	$bid_id = $bid->recordBid($type_id);
+	$bid_id = $bid->recordBid();
+	
 	if(!$bid) die('FAILED');
 	
     if($_REQUEST['action_type']!='request'){

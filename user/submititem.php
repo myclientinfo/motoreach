@@ -74,7 +74,7 @@ if(isset($_POST['formdata']) && $_POST['formdata'] == 'submission'){
 		ob_start();
 		$id = Auction::addItem($item);
 		$item = Auction::getItem($id);
-
+//$GLOBALS['debug']->printr($item, true);
 		if(User::hasPermission('Send Match')){
 
 			$message = new Message();

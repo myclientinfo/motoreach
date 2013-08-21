@@ -133,10 +133,10 @@ if($data['registration']==0){
 	$rego = $data['registration'];
 }
 ?>
-<tr>
+<!--<tr>
 	<td valign="top" class="label" style="color: #FF7F00; text-align: right; ">Rego Ends</td>
 	<td valign="top"><?php echo Site::drawPlainText('registration', $rego)?></td>
-</tr>
+</tr>-->
 </table>
 
 	</td>

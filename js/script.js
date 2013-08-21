@@ -26,6 +26,13 @@ jQuery(document).ready(function(){
 		
 	});
 	
+	
+	$('#bidform').submit(function(event){
+		event.preventDefault();
+		place_bid();
+	});
+	
+	
 	$('#alert_box_yes, #alert_box_ok, #alert_box_cancel, #add_prefs #add, .save').bind('mouseup mousedown', function(){
 	
 		if($(this).attr('src').substring($(this).attr('src').length - 8) == 'down.png'){
@@ -461,7 +468,7 @@ var start_timer = function(){
 var place_bid = function(){
 	$.post("/api/placebid.php", $("#bidform").serialize(), function(data){
 		if(data!='FAILED'){
-			$('#submit_button_req, #amount').hide();
+			$('#bidform').hide();
 			newAlert('Your request has been received and an email sent to you.', 'alert');
 		}
 	});

@@ -132,7 +132,8 @@ class Bid {
      */
     function recordBid($type_id = 1) {
         $query = "INSERT INTO auction_bids (datesubmitted, itemID, userID, amount, typeID) 
-            VALUES ({$this->datesubmitted}, {$this->itemID}, {$this->userID}, '".@$_REQUEST['amount']."', '.$type_id.')";
+            			VALUES ({$this->datesubmitted}, {$this->itemID}, {$this->userID}, 
+            			'".@$_REQUEST['amount']."', '$type_id')";
         
         return Site::runQuery($query);
     } 
