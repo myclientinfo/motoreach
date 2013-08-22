@@ -22,6 +22,10 @@ jQuery(document).ready(function(){
 		
 		if(!submitted) e.preventDefault();
 		
+		if($('#chargetotal').val() == '0'){
+			$(this).attr('action', 'confirm_sale.php?auction_id=' + $('#ID').val());
+		}
+
 		if(validate()){	
 		<?php if($_SESSION['l10n']['country_code']!='IE'){ ?>
 			return true;
@@ -32,8 +36,10 @@ jQuery(document).ready(function(){
 			}
 			
 			$.post("api/add_vehicle.php", $(this).serialize()).done(function(data) {
+				
 				$('#ID').val(data);
 				$('#customerid').val(data);
+				
 				$('#responseSuccessURL').val('http://www.mymotoreach.com/confirm_sale.php?auction_id='+data);
 				$('#responseFailURL').val('http://www.mymotoreach.com/confirm_sale.php?auction_id='+data);
 				
@@ -260,7 +266,7 @@ jQuery(document).ready(function(){
 					echo Site::drawHidden('mode', 'payonly');
 					
 					//echo Site::drawHidden('chargetotal', '19.95');
-					echo Site::drawSelect('chargetotal', array('19.95' => '&euro;19.95', '14.95'=> '&euro;14.95', '9.95' => '&euro;9.95'), '','', 'Charge').BR2;
+					echo Site::drawSelect('chargetotal', array('0'=>'Free', '19.95' => '&euro;19.95', '14.95'=> '&euro;14.95', '9.95' => '&euro;9.95'), '','', 'Charge').BR2;
 
 					echo Site::drawHidden('currency', '978');
 					echo Site::drawHidden('customerid', '');
@@ -268,8 +274,9 @@ jQuery(document).ready(function(){
 					echo Site::drawHidden('responseFailURL', 'http://www.mymotoreach.com/confirm_sale.php');
 					
 				} 
-				
+				//print_r($_SESSION['l10n']);
 				echo Site::drawHidden('country', $_SESSION['l10n']['country_id']);
+				echo Site::drawHidden('country_id', $_SESSION['l10n']['country_id']);
 				echo Site::drawHidden('ob_hidden', '0');
 				echo Site::drawHidden('auction_id', '0');
 				echo Site::drawHidden('location_pref', '0');
@@ -334,7 +341,8 @@ jQuery(document).ready(function(){
 			echo Site::drawHidden('auctionlength', 14);
 			
 			echo Site::drawText('rego_number', '', 'registration').BR2;
-			
+
+			$month_array = array('', 'Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
 			echo Site::drawSelect('nct_month', $month_array, '', '', 'NCT Info');
 			echo Site::drawSelect('nct_year', array(''=>'', '2013'=>'2013', '2014' => '2014', '2015' => '2015', '2016' => '2016'),'', '').BR2;
 			
@@ -383,7 +391,6 @@ jQuery(document).ready(function(){
 			echo Site::drawTextArea('description', @$_POST['description'], 'comments', array('placeholder'=>'optional')).BR2;
 			
 			echo Site::drawDiv();
-			
 			
 			
 			
