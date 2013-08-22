@@ -223,6 +223,11 @@ $length_seconds = Site::getLookupTable('auction_lengths', 'id', 'lis', 'id', fal
 	#item_public_warning {
 		font-size: 12px;
 	}
+
+	#bidform {
+		display: none;
+	}
+	
 	</style>
 	<div id="inner_content_blue">
     <h2 id="vehicle_title">Vehicle #<?php echo $item->data['ID']?>: <?php echo $item->data['year']?> <?php echo $item->data['make']?> <?php echo $item->data['model']?> <?php echo $item->data['badge']?> <?php echo $item->data['series']?></h2>
@@ -386,7 +391,7 @@ $length_seconds = Site::getLookupTable('auction_lengths', 'id', 'lis', 'id', fal
 			?>
 				<form id="bidform" action="" method="post" style="display: none;">
 			<?php } else {
-				echo Site::drawForm('bidform', '', 'POST', false, true);
+				echo Site::drawForm('bidform', '', 'POST', false);
 			}
 			
 			$minimum_bid = ($item->data['count_bids']>0?$item->data['highest_bid']:$item->data['startprice']);
