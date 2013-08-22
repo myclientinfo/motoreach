@@ -578,11 +578,10 @@ class Auction {
 			$query .= ' AND (p.mileage > '.(int)Site::numbersOnly($data['data']['mileage']).' OR p.mileage = 0)'."\n";
 		}
 		
-		
-		
 		$array = Site::getData($query, false, 'ID', false, ($is_public ? 'public_preferred' : false));
 		
 		if($is_public){
+		
 			$new_array = array();
 			$tnum[1] = 20;
 			$tnum[2] = 20;
@@ -1535,7 +1534,6 @@ class Auction {
 		$message = new Message();
 		
 		$vehicle_matches = Auction::getVehicleMatches($content);
-	
 		$groups_preferred = User::loadGroupPreferred($user_id);
 		
 		$sent = array();

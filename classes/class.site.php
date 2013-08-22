@@ -727,8 +727,6 @@ oFCKeditor.Create() ;
 		
 		if($update_duplicate) $query .= ' ON DUPLICATE KEY UPDATE '.$set_string;
 		
-		//die($query);
-		//echo $query.'<br>';
 		$id = $this->runQuery($query);
 		
 		return $id;

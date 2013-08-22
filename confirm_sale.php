@@ -28,7 +28,7 @@ $response = false;
 $log = false;
 
 if(isset($_GET['auction_id'])){
-
+	
 	Auction::setStatus($id, 2);
 	Auction::sendVehicleMatches($id, $user['ID'], $content);
 

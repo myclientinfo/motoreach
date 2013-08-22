@@ -16,24 +16,18 @@ if($_POST['description'] == 'optional') $_POST['description'] = '';
 
 $user_id = $user->save();
 $user = new Extend_User($user_id, false, true, 'auction_users');
+
+//print_r($user);
 User::addCampaignMonitorSubscriber($user->data);
 
 $_POST['userID'] = $user_id;
 $_POST['id'] = $user_id;
 
 $content = new VehicleDetails(false, false, true, 'vehicle_details');
-
+//print_r($content);
 $id = $content->save();	
 
 echo $id;
 
-//$content = new VehicleDetails($id, false, true, 'vehicle_details');
-
-//$desc = $content->data['year'].' '.$content->data['make'].' '.$content->data['model'].' '.@$content->data['badge'];
-//$return_page = 'http://'.$_SERVER['HTTP_HOST'].'/confirm_sale.php';
-
-
-
-//header('location: confirm_sale.php?auction_id='.$id);
 die();
 ?>

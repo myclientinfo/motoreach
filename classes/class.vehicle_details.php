@@ -6,7 +6,7 @@ class VehicleDetails extends Site{
 
 	var $table_name = 'vehicle_details';
 	
-	var $table_fields = array('auction_id', 'id', 'ID', 'userID','mileage','build_month', 'year', 'comp_month', 'comp_year', 'startprice', 'location_id',
+	var $table_fields = array('auction_id', 'id', 'ID', 'userID','mileage','build_month', 'year', 'comp_month', 'comp_year', 'startprice', 
 							'buyoutprice', 'spend', 'statusID','model_id', 'make_id', 'auctionlength', 'dateentered', 'auction_end', 
 							'badge_id', 'series_id', 'sale_type_id',  'max_requests',  'registration', 'colour_id',
 							'transmission_id', 'body_id', 'drive_type_id', 'fuel_type_id', 'roof_type_id', 'interior_type_id', 
@@ -127,6 +127,7 @@ class VehicleDetails extends Site{
 					 LEFT JOIN type_fuel AS tf ON tf.id = vd.fuel_type_id
 					 LEFT JOIN type_roofs AS tr ON tr.id = vd.roof_type_id
 					 LEFT JOIN type_colours AS tc ON tc.id = vd.colour_id
+					 LEFT JOIN regions AS rg ON rg.id = u.location_id
 					 LEFT JOIN type_interiors AS ti ON ti.id = vd.interior_type_id
 					 LEFT JOIN type_colours AS tic ON tic.id = vd.interior_colour_id
 					 LEFT JOIN auction_status AS aus ON a.statusID = aus.id';
@@ -159,10 +160,13 @@ class VehicleDetails extends Site{
 		
 		$_POST['id'] = @$_POST['vd_id'];
 		$_POST['auction_id'] = $auction_id;
+		
 		parent::save();
 		
 		if($is_new){
 			$query = 'INSERT INTO auction_bids(itemID, userID, datesubmitted, amount, statusID, typeID) VALUES('.$auction_id.', '.$_POST['userID'].', '.time().', "", 1, 2)';
+			
+			
 			Site::runQuery($query);
 		}
 		
