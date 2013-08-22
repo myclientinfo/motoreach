@@ -5,9 +5,10 @@
 $user = $_SESSION['auction']->user;
 $is_owner = ($user->ID == $item->userID) ? true : false;
 $has_bid = false;
+
 $latest_bid = array();
 foreach($history as $h){
-	if($h['userID'] == $user->ID && $h['type'] == 'Request Info') $has_bid = true;
+	//if($h['userID'] == $user->ID && $h['type'] == 'Request Info') $has_bid = true;
 }
 
 $length_seconds = Site::getLookupTable('auction_lengths', 'id', 'lis', 'id', false, false);
@@ -186,13 +187,17 @@ $length_seconds = Site::getLookupTable('auction_lengths', 'id', 'lis', 'id', fal
 	}
 	
 	#display_item_opt_right #amount{
-		font-size: 20px;
-		margin-bottom: 5px;
+		
 		float: left;
 		width: 150px;
-		height: 20px;
+		height: 30px;
 		margin-left: 15px;
 		margin-top: 15px;
+		border: 1px solid #cccccc;
+		border-radius: 5px;
+		padding-left: 5px;
+		font-size: 14px;
+		
 	}
 	
 	#submit_button {
@@ -208,7 +213,8 @@ $length_seconds = Site::getLookupTable('auction_lengths', 'id', 'lis', 'id', fal
 		margin-left: 13px;
 		position: relative;
 		top: 2px;
-		margin-top: 15px; 
+		margin-top: 15px;
+		margin-bottom: 0px;
 	} 
 	
 	.myBlurredClass {color: #CCCCCC;}
@@ -357,7 +363,6 @@ $length_seconds = Site::getLookupTable('auction_lengths', 'id', 'lis', 'id', fal
 						echo Site::drawSelect('owner_actions', $actions_array, '', '', 'This listing');
 						echo Site::drawSelect('auctionlength', Site::getLookupTable('auction_lengths', 'id', 'length', 'lis'), '', '', 'extend for');
 						echo Site::drawSelect('owner_actions_notify', array('top5'=>'Top 5', 'top10'=>'Top 10'));
-						//if($item->data['buyoutprice']) echo Site::drawButton('action_submit', 'Go').BR2;
 						echo Site::drawSubmitImage('action_submit', '/images/button_sm_go.png').BR2;
 						echo Site::drawForm();
 					}
@@ -367,14 +372,19 @@ $length_seconds = Site::getLookupTable('auction_lengths', 'id', 'lis', 'id', fal
 			<?php 
 			}
 			
+			//echo '<pre>';
+			//print_r($history);
+			//echo '</pre>';
+			
 			if(@$latest_bid['userID'] == $user->ID){
 				echo '<span id="you_win">You are the winning bidder.</span>';
 				?>
 				<form id="bidform" action="" method="post" style="display: none;" onclick="return false">
 			<?php
-			} else if($item->data['status'] != 'Active' || $is_owner || $item->data['auction_end'] < time() || ($has_bid && !isset($_GET['offer'])) ){
+			} else if( $item->data['status'] != 'Active' || $is_owner || 
+						$item->data['auction_end'] < time() || ($has_bid && !isset($_GET['offer'] ) ) ){
 			?>
-				<form id="bidform" action="" method="post" style="display: none;" onclick="return false">
+				<form id="bidform" action="" method="post" style="display: none;">
 			<?php } else {
 				echo Site::drawForm('bidform', '', 'POST', false, true);
 			}
@@ -388,16 +398,19 @@ $length_seconds = Site::getLookupTable('auction_lengths', 'id', 'lis', 'id', fal
 			echo Site::drawHidden('itemID', $item->ID);
 			echo Site::drawHidden('formdata', 'bid');
 			echo Site::drawHidden('is_buyout', '0');
-			echo Site::drawHidden('action_type', 'request');
+			echo Site::drawHidden('action_type', 'bid');
 			
 			echo Site::drawHidden('winning_bid', @$winning_bid['ID']);
 			echo Site::drawHidden('buyout_temp', $item->data['buyoutprice']);
 			echo Site::drawHidden('winning_bidder', @$latest_bid['userID']);
 			
-			if(isset($_GET['offer'])){
+			if(true){
 				echo Site::drawHidden('offer', 1);
-				echo Site::drawText('amount', 'make an offer', 'offer?');
-				echo Site::drawCustomSubmit('make an offer', '_lg_ns', '_req', true);
+				echo Site::drawText('amount', '', 'offer?');
+				?>
+				<input type="submit" class="new-button mid-button" style="margin-top: 10px;" value="make an offer">
+				<?php 
+				//echo Site::drawCustomSubmit('make an offer', '_lg_ns', '_req', true);
 			} else {
 				echo Site::drawHidden('offer', 0);
 				echo Site::drawCustomSubmit('request seller contact', '_lg_ns', '_req', true);
