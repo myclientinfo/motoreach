@@ -10,7 +10,7 @@ if(isset($_GET['vpc_MerchTxnRef'])){
 	$_GET['auction_id'] = $_GET['vpc_MerchTxnRef'];
 }
 
-$id = isset($_REQUEST['auction_id']) ? (int)$_REQUEST['auction_id'] : false ;
+$id = isset($_GET['auction_id']) ? (int)$_GET['auction_id'] : false ;
 $user_id = isset($_GET['user_id'])? (int)$_GET['user_id'] : false;
 
 $content = new VehicleDetails($id, false, true, 'vehicle_details', '');

@@ -129,15 +129,10 @@ class Message{
 		
 		if($message['send_email']){
 			if($message['email'] == '') return false;
-			Message::logMessage($message['message_type_id'], @$data['auction_id'], $message['ID']);
 			
-			if(isset($data['user_type_id']) && $data['user_type_id'] == 7){
-				Message::logPublicOffer($data['auction_id'], $message['ID']);
-			}
 			
 			$body = new Template('email_'.$message['message_type_id']);
 			$body->set('data', $data);
-			//$GLOBALS['debug']->printr($data);
 			$body->set('email', $message);
 			
 			if($message['message_type_id'] == 9){
@@ -169,8 +164,9 @@ class Message{
 			include_once 'class.phpmailer.php';
 			
 			try {
+				
 				$mail = new PHPMailer(true); //New instance, with exceptions enabled
-				//$mail->IsMail();  // tell the class to use Sendmail
+				
 				$mail->AddReplyTo("noreply@motoreach.com", "MotoReach");
 				$mail->From       = "noreply@motoreach.com";
 				$mail->FromName   = "MotoReach";
@@ -180,12 +176,21 @@ class Message{
 				$mail->WordWrap   = 80; // set word wrap
 				
 				$mail->MsgHTML($html_body);
-//die($html_body);
 				$mail->IsHTML(true); // send as HTML
-				//$GLOBALS['debug']->printr($_SERVER['HTTP_HOST']);
 				
-				if($_SERVER['HTTP_HOST']!='motoreach' && $_SERVER['HTTP_HOST']!='motopublic' && $data['make'] != 'Demo') $mail->Send();
-				else $GLOBALS['debug']->printr($html_body, true);
+				if($_SERVER['HTTP_HOST']!='motoreach' && $_SERVER['HTTP_HOST']!='motopublic' && $data['make'] != 'Demo'){
+					$mail->Send();
+
+					Message::logMessage($message['message_type_id'], @$data['auction_id'], $message['ID']);
+			
+					//if(isset($data['user_type_id']) && $data['user_type_id'] == 7){
+						//Message::logPublicOffer($data['auction_id'], $message['ID']);
+					//}
+				} else {
+
+					Message::logMessage($message['message_type_id'], @$data['auction_id'], $message['ID']);
+					$GLOBALS['debug']->printr($html_body, true);
+				}
 
 
 				

@@ -586,7 +586,6 @@ class Auction {
 			$tnum[1] = 20;
 			$tnum[2] = 20;
 			
-			
 			foreach($tnum as $t => $num){
 				if(isset($array[$t])){
 					
@@ -1536,6 +1535,9 @@ class Auction {
 		$vehicle_matches = Auction::getVehicleMatches($content);
 		$groups_preferred = User::loadGroupPreferred($user_id);
 		
+
+		//$GLOBALS['debug']->printr($vehicle_matches);
+
 		$sent = array();
 		
 		foreach($vehicle_matches as $m){
