@@ -56,9 +56,12 @@ $p = isset($_REQUEST['dialer'])?'..':'';
 
 </script>
 	<style>
-	#header_image img {
-		left: -<?php echo $car['left']?>px;
-		top: -<?php echo $car['top']?>px;
+	#header_image  {
+		background-position-left: -<?php echo $car['left']?>px;
+		background-position-top: -<?php echo $car['top']?>px;
+		background-image: url(images/cars/<?php echo $car['image']?>);
+		cursor: pointer;
+		cursor: hand;
 	}
 	
 	
@@ -81,8 +84,14 @@ $p = isset($_REQUEST['dialer'])?'..':'';
 <div id="container">
 	<?php if(!isset($_REQUEST['dialer'])){ ?>
 	<div id="header">
-	<a href="http://www.mountjuliet.ie/?gclid=CIuJq-KG7rgCFcw72wodW30ArQ" target="_blank"><img src="/images/banner2.jpg" style="border: 0px; position: absolute; right: 0px; top: 25px;"></a>
-		
+
+	<?php if($_SESSION['l10n']['country_code']=='IE'){ ?>
+		<a href="http://www.mountjuliet.ie/?gclid=CIuJq-KG7rgCFcw72wodW30ArQ" target="_blank"><img src="/images/banner2.jpg" style="border: 0px; position: absolute; right: 0px; top: 25px;"></a>
+	<?php } else { ?>
+		<div id="header_image">
+		<div id="header_image_text"><?php echo $car['text']?></div>
+		</div>
+	<?php } ?>
 		
 		
 		<h1><img src="/images/logo.png" /></h1>
@@ -160,15 +169,17 @@ $p = isset($_REQUEST['dialer'])?'..':'';
 			<div class="obox" id="orange_mid_box">
 				<img src="/images/middle_car.png" id="middle_car">
 				
-			<!--<div id="dealer_ad">
-				<div id="dealer_ad_inner">
-					<b class="ad_header">AMM Finance</b>
-					<p>Premium dealer finance packages, paying higher than average referral commissions. Also offering good terms for poor credit rate customers.</p>
-					
-					<p>Call now and arrange to discuss a partnership with Australia's fastest growing finance provider.</p>
-					
+				<!--
+				<div id="dealer_ad">
+					<div id="dealer_ad_inner">
+						<b class="ad_header">AMM Finance</b>
+						<p>Premium dealer finance packages, paying higher than average referral commissions. Also offering good terms for poor credit rate customers.</p>
+						
+						<p>Call now and arrange to discuss a partnership with Australia's fastest growing finance provider.</p>
+						
+					</div>
 				</div>
-			</div>-->
+				-->
 			
 			</div>
 			<div class="obox" id="orange_right_box">
