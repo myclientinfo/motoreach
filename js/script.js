@@ -44,29 +44,16 @@ jQuery(document).ready(function(){
 		
 	});
 	
-	$('#header_image_overlay').click(function(){
-		
-		$('#header_image_overlay').hide();
-		$('#header_image').animate({width: 800, height: 600, top: 100, left: 75}, 500, function(){
-			$('#header_image_text').show();
-		});
-		$('#header_image_image').animate({top: 0, left: 0}, 500);
-	});
-	
 	$('#header_image').click(function(){
-			
-		if($(this).css('width').replace('px', '')*1>600){
 		
-			$('#header_image').animate({width: 450, height: 100, top: 0, left: 490}, 500, 
-				function(){ 
-					$('#header_image_text').hide();
-					$('#header_image_overlay').fadeIn();
-				
-				}
-			);
-			$('#header_image_image').animate({top: '-'+car.top, left: '-'+car.left}, 500);
-			
-		
+		if($(this).width()<600){
+			$('#header_image').animate({width: 800, height: 600, top: 100, left: 75}, 500, function(){
+				$('#header_image_text').fadeIn();
+			});
+		} else {
+			$('#header_image').animate({width: 450, height: 100, top: 0, left: 490}, 500, function(){ 
+				$('#header_image_text').fadeOut();
+			});
 		}
 	});
 	
@@ -364,16 +351,6 @@ jQuery(document).ready(function(){
 	
 });
 
-var checkMapImages = function(){
-	$('#match_map img').each(function(){
-		if($(this).css('opacity').substring(0,3) == '0.7'){
-			//console.log($(this));
-			
-		}
-	});
-}
-
-
 function colorToHex(color) {
     if (color.substr(0, 1) === '#') {
         return color;
@@ -389,8 +366,6 @@ function colorToHex(color) {
 };
 
 var validate = function(){
-	
-	//event.preventDefault();
 	
 	var invalid = false;
 	var failed = [];
@@ -432,32 +407,12 @@ var validate = function(){
 	}
 	
 	if(typeof(str)!='undefined'){
-	
 		newAlert(str, 'stop');
-		//alert(str);
 		return false;
 	}
+	allow = true;
 	return true;
 }
-
-/*
-var banner_curr = 1;	
-
-var banner_fade_out = function(){
-	banner_curr = $('#rotating_image img:visible').attr('id').replace('image_rotate', '');
-	$('#rotating_image img:visible').fadeOut(2000);
-	banner_fade_in();
-};
-
-var banner_fade_in = function(){
-	banner_rn_num = (banner_curr * 1) + 1;
-
-	if(banner_rn_num == $('#rotating_image img').length+1){
-		banner_rn_num = 1;
-	}
-	$('#image_rotate'+banner_rn_num).fadeIn(2000);
-};
-*/
 
 var interv;
 		
