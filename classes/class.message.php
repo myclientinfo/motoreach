@@ -116,6 +116,8 @@ class Message{
 			case "16": $msg = "MotoReach item extended"; break;
 			case "17": $msg = "MyMotoReach Confirmation"; break;
 			case "19": $msg = "Report Email"; break;
+			case "20": $msg = "New Dealer Message"; break;
+			case "21": $msg = "Batch Email"; break;
 		}
 		
 		$array['message'] = $msg;
@@ -136,7 +138,7 @@ class Message{
 			$body->set('email', $message);
 			
 			if($message['message_type_id'] == 9){
-				$subject = ($data['user_type_id']==5?'Public Vehicle: ':'Dealer Listing: '). $data['year'] . ' ' .$data['make'] . ' ' . $data['model'] . ' (' . $data['city'] . ')';
+				$subject = ($data['user_type_id']==5?'Public Vehicle: ':'Dealer Listing: '). $data['year'] . ' ' .$data['make'] . ' ' . $data['model'] . ' (' . $data['region'] . ')';
 			} else if($message['message_type_id'] == 10){
 				$subject = 'Interest in your '.$data['make'] . ' ' . $data['model'] . ' ' . @$data['badge']  . ' ' . @$data['series'];
 			} else if($message['message_type_id'] == 11){
