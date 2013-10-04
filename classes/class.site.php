@@ -726,7 +726,7 @@ oFCKeditor.Create() ;
 		$query = 'INSERT INTO '.$this->table_name.'('.$field_string.') VALUES('.$value_string.')';
 		
 		if($update_duplicate) $query .= ' ON DUPLICATE KEY UPDATE '.$set_string;
-		
+		//echo $query.'<br><br>';
 		$id = $this->runQuery($query);
 		
 		return $id;
