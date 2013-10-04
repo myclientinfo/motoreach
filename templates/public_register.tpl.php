@@ -7,6 +7,7 @@ var validate_array = ['fullname','email', 'phone', 'city', 'mileage', 'streetadd
 <?php } ?>
 var country_code = '<?php echo $_SESSION['l10n']['country_code']?>';
 var submitted = false;
+var allow = false;
 jQuery(document).ready(function(){
 	
 	$('select, input').bind('change blur', function(){
@@ -20,16 +21,16 @@ jQuery(document).ready(function(){
 	
 	$('#newitem').submit(function(e){
 		
+		<?php if($_SESSION['l10n']['country_code']=='IE'){ ?>
+
 		if(!submitted) e.preventDefault();
-		
+
 		if($('#chargetotal').val() == '0'){
 			$(this).attr('action', 'confirm_sale.php?auction_id=' + $('#ID').val());
 		}
 
 		if(validate()){	
-		<?php if($_SESSION['l10n']['country_code']!='IE'){ ?>
-			return true;
-		<?php } else { ?>
+
 			//return true;
 			if(submitted){
 				return true;
@@ -54,14 +55,26 @@ jQuery(document).ready(function(){
 				});
 				
 			});
-		<?php } ?>
-		} else {
-			return false;	
-		}
 		
+		} 
+
+		<?php } else { ?>
+
+		if(validate()){	
+		
+			submitted = true;
+			return true;
+			
+		}
+
+		e.preventDefault();
+		return false
+
+		<?php } ?>
 		
 	});
 	
+	<?php if($_SESSION['l10n']['country_code']=='IE'){ ?>
 	$('#rego_number').blur(function(){
 		$.get('/api/motorcheck.php', {registration: $('#rego_number').val() }, function(result){
 			$('#make_id').val(result.make.toUpperCase());
@@ -147,6 +160,7 @@ jQuery(document).ready(function(){
 			
 		})
 	});
+	<?php } ?>
 	
 	$('#state').bind('blur change', function(){
 		
@@ -343,9 +357,14 @@ jQuery(document).ready(function(){
 			echo Site::drawText('rego_number', '', 'registration').BR2;
 
 			$month_array = array('', 'Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
-			echo Site::drawSelect('nct_month', $month_array, '', '', 'NCT Info');
-			echo Site::drawSelect('nct_year', array(''=>'', '2013'=>'2013', '2014' => '2014', '2015' => '2015', '2016' => '2016'),'', '').BR2;
 			
+			if($_SESSION['l10n']['country_code']!='IE'){
+				echo Site::drawHidden('nct_month', '');
+				echo Site::drawHidden('nct_year', '');
+			} else {
+				echo Site::drawSelect('nct_month', $month_array, '', '', 'NCT Info');
+				echo Site::drawSelect('nct_year', array(''=>'', '2013'=>'2013', '2014' => '2014', '2015' => '2015', '2016' => '2016'),'', '').BR2;
+			}
 			echo Site::drawText('year', @$_POST['year'], 'Year').BR;
 			
 			echo Site::drawSelect('make_id', $make_array, @$_POST['make_id'], '', 'make').BR;
