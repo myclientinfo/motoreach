@@ -145,7 +145,7 @@ class Auction {
 		if($_POST['max_requests']==0) $_POST['max_requests'] = 10;
 		
 		$query = 'INSERT INTO vehicle_details (
-					auction_id, model_id, colour_id, badge_id, series_id, sale_type_id, 
+					auction_id, model_id, colour_id, badge_id, series_id, sale_type_id,
 					transmission_id, body_id, drive_type_id, fuel_type_id, roof_type_id, interior_type_id, interior_colour_id, 
 					spend, mileage, build_month, year, comp_month, comp_year, doors, cylinders, engine_size, VIN, import, registration, max_requests,
 					nct_month, nct_year
@@ -155,10 +155,9 @@ class Auction {
 						"'.$_POST['fuel_type_id'].'", "'.$_POST['roof_type_id'].'", "'.$_POST['interior_type_id'].'", "'.$_POST['interior_colour_id'].'", 
 						"'.$_POST['spend'].'", "'.$_POST['mileage'].'", 
 						"'.@$_POST['build_month'].'", "'.$_POST['year'].'", "'.@$_POST['comp_month'].'", "'.@$_POST['comp_year'].'", 
-						"'.$_POST['doors'].'", "'.$_POST['cylinders'].'", "", "", 
+						"'.$_POST['doors'].'", "'.$_POST['cylinders'].'", "'.$_POST['engine_size'].'", "", 
 						"'.$_POST['import'].'", "'.@$_POST['registration'].'", "'.$_POST['max_requests'].'",
 						"'.@$_POST['nct_month'].'", "'.$_POST['nct_year'].'")';
-		
 		return Site::runQuery($query);
 	}
 	
