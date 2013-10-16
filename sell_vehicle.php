@@ -1,11 +1,9 @@
 <?php
-
 require_once 'include.php';
 require_once 'classes/class.extend_user.php';
 require_once 'classes/class.vehicle_details.php';
 require_once 'classes/class.extend_auction.php';
 require_once 'classes/class.extend_user.php';
-
 
 if(isset($_POST['formdata']) && $_POST['formdata'] != 'miniform'){
 	
@@ -23,8 +21,6 @@ if(isset($_POST['formdata']) && $_POST['formdata'] != 'miniform'){
 	
 	$_POST['userID'] = $user_id;
 	$_POST['id'] = $user_id;
-	
-	//print_r($user_id);
 	
 	$content = new VehicleDetails(false, false, true, 'vehicle_details');
 	
