@@ -142,7 +142,9 @@ $(window).load(function(){
 		<li><span>Easy. Quick. Cash.</span></li>
 	</ol>
 	
-	<?php if($_SESSION['l10n']['country_code']=='IE'){ ?><p class="feature">DEALERS ALL OVER IRELAND ARE WAITING FOR YOUR CAR.</p><?php } ?>
+	<?php if($_SESSION['l10n']['country_code']=='IE'){ ?>
+	<p class="feature">DEALERS ALL OVER IRELAND ARE WAITING FOR YOUR CAR.</p>
+	<?php } ?>
 
   </div>
 	<div id="lower_box" style="display: none;">
