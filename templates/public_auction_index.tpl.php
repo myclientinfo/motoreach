@@ -45,7 +45,9 @@ $(window).load(function(){
 #frame_position img {opacity: 0.5; cursor: pointer; cursor: hand; margin-right: 3px;}
 #frame_position img#frame_pos_1 {opacity: 1;}
 </style>
-
+<?php if(isset($_GET['test'])){?>
+THIS WORKED
+<?php } ?>
 <div id="headermain">
 	<div id="frame_position">
 	<img src="/images/frame_dot.png" id="frame_pos_1" />
