@@ -1,5 +1,5 @@
 <?php 
-echo 'TEST';
+echo 'WORKING?';
 
 print_r($_SERVER);
 ?>
