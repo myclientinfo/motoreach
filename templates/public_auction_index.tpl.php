@@ -47,7 +47,7 @@ $(window).load(function(){
 </style>
 <?php if(isset($_GET['test'])){?>
 
-<div style="font-size: 48px; color: blue; border: 1px solid black; padding: 10px; ">THIS WORKED</div>
+<div style="font-size: 48px; color: blue; border: 1px solid black; padding: 10px; margin: 10px;">THIS WORKED</div>
 
 <?php } ?>
 <div id="headermain">
