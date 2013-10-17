@@ -46,7 +46,7 @@ $(window).load(function(){
 #frame_position img#frame_pos_1 {opacity: 1;}
 </style>
 <?php if(isset($_GET['test'])){?>
-THIS WORKED
+<div style="font-size: 40px;">THIS WORKED</div>
 <?php } ?>
 <div id="headermain">
 	<div id="frame_position">
