@@ -90,7 +90,7 @@
 		top: 175px;
 		left: 340px;
 		z-index: 200;
-		width: 470px;
+		width: 590px;
 	}
 	
 	.list_car{
@@ -138,7 +138,7 @@
 		<img src="/images/header_text.png" id="header_text" />
 		<p>MotoReach introduces <?php echo $_SESSION['l10n']['term_local_state_interstate'] ?> <?php echo $_SESSION['l10n']['term_wholesale'] ?> sellers and buyers, <a href="about_benefits.php">saving the time and cost of using a third party</a>.</p>
 	</div>
-	<img src="/images/stop.png" id="stop" />
+	<img src="/images/stop.png" id="stop" style="display: none;" />
 
 	<div id="index_top_spacer"></div>
 
@@ -175,10 +175,15 @@
 	<div id="index_text_content">
 		<h3>HOW IT WORKS</h3>
 		
-		<?php 
-		//if(){ 
+		<div style="float: right; text-align: center; ">
+			<img src="/images/logo_small.png" style="position: absolute; top: 10px; right: 0px; display:none;">
 			
-		?>
+<h2 style="color: orange; margin: 0px;">Proud Partners With</h2>
+			<img src="/images/dublin_auctions.png"><br>
+			
+
+		</div>
+
 		<p><a href="/register.php">Become a member now</a></p>
 		
 		<p>Joining the MotoReach network now gives you access to hundreds of trade vehicles from dealers and the public. MotoReach instantly puts quality stock just a click and a call away. 70% of people selling cars will be replacing them, so a stock purchase may well turn into a sale as well. All you have to do is check your email for new vehicles which are regularly listed by the public, click the ones that interest you and then call the number you are sent. </p>
