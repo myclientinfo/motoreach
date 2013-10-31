@@ -175,13 +175,11 @@
 	<div id="index_text_content">
 		<h3>HOW IT WORKS</h3>
 		
-		<div style="float: right; text-align: center; ">
-			<img src="/images/logo_small.png" style="position: absolute; top: 10px; right: 0px; display:none;">
-			
-<h2 style="color: orange; margin: 0px;">Proud Partners With</h2>
+		<div style="float: right; text-align: center; border: 10px solid #15008b; border-top-width: 40px;">
+		
+			<h2 style="color: orange; margin: 0px; position: absolute; top: 36px;">Proud Partners With</h2>
 			<img src="/images/dublin_auctions.png"><br>
 			
-
 		</div>
 
 		<p><a href="/register.php">Become a member now</a></p>
