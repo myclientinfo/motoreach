@@ -45,11 +45,11 @@ $(window).load(function(){
 #frame_position img {opacity: 0.5; cursor: pointer; cursor: hand; margin-right: 3px;}
 #frame_position img#frame_pos_1 {opacity: 1;}
 </style>
+
 <?php if(isset($_GET['test'])){?>
-
 <div style="font-size: 48px; color: blue; border: 1px solid black; padding: 10px; margin: 10px;">IT WORKING?</div>
-
 <?php } ?>
+
 <div id="headermain">
 	<div id="frame_position">
 	<img src="/images/frame_dot.png" id="frame_pos_1" />
@@ -107,7 +107,17 @@ $(window).load(function(){
   <div class="column3-unit-main">
 	
 	<?php if(true){ ?>
-	<div id="free_image">
+
+	<div style="float: right; text-align: center; ">
+			<img src="/images/logo_small.png" style="position: absolute; top: 10px; right: 0px; display:none;">
+			
+			<h2 style="color: orange; margin: 0px;">Proud Partners With</h2>
+			<img src="/images/dublin_auctions.png"><br>
+			
+
+		</div>
+
+	<div id="free_image" style="display: none">
 		<!--<img src="/images/free_image_1_<?php echo strtolower($_SESSION['l10n']['country_code']) ?>.jpg" />
 		<img id="free_image_2" src="/images/free_image_2_<?php echo strtolower($_SESSION['l10n']['country_code']) ?>.jpg" />-->
 		
@@ -131,6 +141,9 @@ $(window).load(function(){
 		
 	</div>
   <?php } ?>
+
+
+
 	<div id="dealer_header">DEALERS HAVE CUSTOMERS WAITING FOR ALL TYPES OF CARS</div>
 
 	<p>By using MotoReach to sell your car you place it directly in front of the dealers that have buyers already lined up for a vehicle just like yours, meaning you'll get the best possible price. You could sell for as much or more than selling privately without the hassle and inconvenience.</p>
