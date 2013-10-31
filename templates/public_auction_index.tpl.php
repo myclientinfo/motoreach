@@ -108,14 +108,12 @@ $(window).load(function(){
 	
 	<?php if(true){ ?>
 
-	<div style="float: right; text-align: center; ">
-			<img src="/images/logo_small.png" style="position: absolute; top: 10px; right: 0px; display:none;">
-			
-			<h2 style="color: orange; margin: 0px;">Proud Partners With</h2>
-			<img src="/images/dublin_auctions.png"><br>
-			
-
-		</div>
+	<div style="float: right; text-align: center; border: 10px solid #15008b; border-top-width: 40px;">
+		
+		<h2 style="color: orange; margin: 0px; position: absolute; top: 10px;">Proud Partners With</h2>
+		<img src="/images/dublin_auctions.png"><br>
+		
+	</div>
 
 	<div id="free_image" style="display: none">
 		<!--<img src="/images/free_image_1_<?php echo strtolower($_SESSION['l10n']['country_code']) ?>.jpg" />
