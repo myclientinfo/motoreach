@@ -108,7 +108,7 @@ $(window).load(function(){
 	
 	<?php if(true){ ?>
 
-	<div style="float: right; text-align: center; border: 10px solid #15008b; border-top-width: 40px;">
+	<div style="float: right; text-align: center; border: 5px solid #15008b; border-top-width: 40px;">
 		
 		<h2 style="color: orange; margin: 0px; position: absolute; top: 10px;">Proud Partners With</h2>
 		<img src="/images/dublin_auctions.png"><br>
