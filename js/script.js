@@ -658,7 +658,9 @@ var update_kms = function(){
 	var factor = 1.609344;
 	
 	if($('#mileage_miles').val()!=''){
-		$('#mileage').val(Math.floor($('#mileage_miles').val()*factor));
+		var mileage_original = $('#mileage_miles').val().replace(' ', '').replace(',', '');
+
+		$('#mileage').val(Math.floor(mileage_original*factor));
 	}
 }
 
@@ -667,7 +669,10 @@ var update_miles = function(){
 	var factor = 0.621371192;
 	
 	if($('#mileage').val()!=''){
-		$('#mileage_miles').val(Math.floor($('#mileage').val()*factor));
+		var mileage_original = $('#mileage').val().replace(' ', '').replace(',', '');
+
+		console.log(mileage_original);
+		$('#mileage_miles').val( Math.floor( mileage_original * factor ) );
 	}
 }
 
